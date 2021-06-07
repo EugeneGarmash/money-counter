@@ -31,14 +31,14 @@ import Audio from '../Audio/Audio';
 // import handleActiveTabClose from '../../utils/handleActiveTabClose';
 import Counter from '../Counter/Counter';
 import { checkUserAuth } from '../../redux/authReducer/authActionCreators';
-import asyncComponent from '../asyncComponent/asyncComponent';
+import Modals from '../Modals/Modals';
 
 import './App.scss';
 const AppFooter = React.lazy(() => import('../AppFooter'));
 const PersonalHistory = React.lazy(() => import('../PersonalHistory'));
 
 // probably should be used in Route component
-const AsyncModals = asyncComponent(() => import('../Modals/Modals'));
+// const AsyncModals = asyncComponent(() => import('../Modals/Modals'));
 
 // сохранять зарплату, если вошёл в аккаунт:
 // сохранять зарплату по стопу
@@ -114,7 +114,7 @@ const App = () =>  {
             />
             <Spinner />
             <Audio />
-            <AsyncModals />
+            <Modals />
 
 
           </div>

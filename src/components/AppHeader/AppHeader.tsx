@@ -5,11 +5,16 @@ import MenuToggleButton from './MenuToggleButton';
 import './AppHeader.scss';
 import MuteButton from '../Button/MuteButton';
 
+
+interface StyledDisclaimerType {
+  margin: string;
+}
+
 /** @info returns a react component
  * to modify styles use `props => condition ? a : b ` in template literals
  * but do not forget to pass props first
  * */
-const StyledDisclaimer = styled.p`
+const StyledDisclaimer = styled.p<StyledDisclaimerType>`
   margin: ${props => props.margin};
   font-size: calc(10px + 1vmin);
   @media (min-width: 2500px) {

@@ -16,7 +16,7 @@ const initialState: AppState = {
   spinner: false,
 }
 
-export const toggleAppState = () => (dispatch, getState) => {
+export const toggleAppState = () => (dispatch: any, getState: any) => {
 
   if (!getState().app.appIsInSalaryStep) {
     dispatch(changeEntertainmentMode(''));
@@ -46,7 +46,7 @@ export const toggleAppSpinner = (): ToggleAppSpinnerActionType => ({
   type: TOGGLE_APP_SPINNER,
 });
 
-export const changeEntertainmentMode = payload => (dispatch, getState) => {
+export const changeEntertainmentMode = (payload: any) => (dispatch: any, getState: any) => {
   const [name, sound] = payload;
 
   const state = getState();
@@ -75,7 +75,7 @@ export const changeEntertainmentMode = payload => (dispatch, getState) => {
 };
 
 
-const appReducer = (state = initialState, action): AppState => {
+const appReducer = (state = initialState, action: any): AppState => {
 
   switch(action.type) {
 

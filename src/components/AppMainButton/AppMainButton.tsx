@@ -1,6 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import propTypes from 'prop-types';
+import { connect, ConnectedProps } from 'react-redux';
 
 import { toggleAppState } from '../../redux/appReducer/appReducer';
 import {
@@ -9,11 +8,10 @@ import {
   toggleCounterState
 } from '../../redux/counterReducer/counterReducer';
 import { saveUserSalary } from '../../redux/authReducer/authActionCreators';
-
 import classes from './AppMainButton.module.scss';
 import { pauseAudio, playAudio } from '../../redux/audioReducer/audioReducer';
-
 import Button from '../Button/Button';
+import { RootState } from '../../redux/store';
 
 type PropsType = {
   setCounterPassed: (data: object) => any,
@@ -26,15 +24,36 @@ type PropsType = {
   salaryValue: number,
   toggleAppState: () => any,
   toggleCounterState: () => any,
-  setCounterSalaryStep: () => any,
+  setCounterSalaryStep: (multiplier: any) => any,
   initializeACounter: () => any,
   onPauseAudio: () => any,
   onPlayAudio: () => any,
   onSaveUserSalary: (data: object) => any,
 }
 
+const connector = connect(
+  (state: RootState) => ({
+    appIsInSalaryStep: state.app.appIsInSalaryStep, // or (state) => state.app.appState
+    counterIsActive: state.counter.counterIsActive,
+    salaryValue: state.salary.salaryValue,
+  }),
+  {
+    toggleAppState,
+    toggleCounterState,
+    setCounterSalaryStep,
+    initializeACounter,
+    onPauseAudio: pauseAudio,
+    onPlayAudio: playAudio,
+    onSaveUserSalary: saveUserSalary,
+  }
+);
 
-const AppMainButton: React.FC<PropsType> = props => {
+type PropsFromRedux = ConnectedProps<typeof connector>
+
+type Props = PropsType & PropsFromRedux
+
+
+const AppMainButton = (props: any) => {
 
   const {
     counterState,
@@ -49,7 +68,7 @@ const AppMainButton: React.FC<PropsType> = props => {
   } = props;
 
 
-  const handleCounterStepButtonClick = async (e) => {
+  const handleCounterStepButtonClick = async (e: any) => {
     if (salaryValue) {
       // e.preventDefault();
       // window.grecaptcha.ready(function() {
@@ -118,23 +137,19 @@ const AppMainButton: React.FC<PropsType> = props => {
   )
 };
 
-AppMainButton.propTypes = {
-  appIsInSalaryStep: propTypes.bool,
-  counterIsActive: propTypes.bool,
-  salaryValue: propTypes.string,
-}
+export default connector(AppMainButton);
 
-export default connect(
-  state => ({
-    appIsInSalaryStep: state.app.appIsInSalaryStep, // or (state) => state.app.appState
-    counterIsActive: state.counter.counterIsActive,
-    salaryValue: state.salary.salaryValue,
-  }), {
-    toggleAppState,
-    toggleCounterState,
-    setCounterSalaryStep,
-    initializeACounter,
-    onPauseAudio: pauseAudio,
-    onPlayAudio: playAudio,
-    onSaveUserSalary: saveUserSalary,
-})(AppMainButton);
+// export default connect(
+//   (state: RootState) => ({
+//     appIsInSalaryStep: state.app.appIsInSalaryStep, // or (state) => state.app.appState
+//     counterIsActive: state.counter.counterIsActive,
+//     salaryValue: state.salary.salaryValue,
+//   }), {
+//     toggleAppState,
+//     toggleCounterState,
+//     setCounterSalaryStep,
+//     initializeACounter,
+//     onPauseAudio: pauseAudio,
+//     onPlayAudio: playAudio,
+//     onSaveUserSalary: saveUserSalary,
+// })(AppMainButton);
