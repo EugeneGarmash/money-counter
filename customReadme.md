@@ -21,7 +21,7 @@ Remove className duplication
 https://www.google.com/search?q=css+modules+name+duplication&oq=css+modules+name+du&aqs=chrome.1.69i57j33i22i29i30.6513j0j7&sourceid=chrome&ie=UTF-8
 to avoid AppMainButton__AppMainButton you should play with webpack config file*/
 using linter with custom settings
-
+5) Fix readme
 
 5)
   Redux toolkit - slices
