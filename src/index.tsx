@@ -10,21 +10,29 @@ import rootReducer from './redux/store';
 import createSagaMiddleware from 'redux-saga';
 import { logoutSaga } from './redux/sagas/authSaga'; // checkAuthTimeoutSaga
 import reportWebVitals from './reportWebVitals';
+import { composeWithDevTools } from "redux-devtools-extension";
 
-const composeEnhancers =
-  process.env.NODE_ENV === 'development'
-  /** @todo create global ts config */
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : null ||
-  // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) ||
-  compose
-;
+
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: boolean
+  }
+}
+
+// const composeEnhancers =
+//   process.env.NODE_ENV === 'development'
+//   /** @todo create global ts config */
+//     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+//     : null ||
+//   // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) ||
+//   compose
+// ;
 
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
   rootReducer,
-  composeEnhancers(applyMiddleware(thunk, sagaMiddleware))
+  composeWithDevTools(applyMiddleware(thunk, sagaMiddleware))
 );
 
 sagaMiddleware.run(logoutSaga);

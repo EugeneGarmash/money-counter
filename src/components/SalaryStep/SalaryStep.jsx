@@ -41,25 +41,6 @@ const salaryInputStyles = {
   }
 }
 
-type MapStateToPropsType = {
-
-}
-
-type mapDispatchToPropsType = {
-
-}
-
-type OwnPropsType = {
-
-}
-
-// OR type PropsFromRedux = ConnectedProps<typeof connector>
-
-type SalaryStepPropsType =
-  MapStateToPropsType &
-  mapDispatchToPropsType &
-  OwnPropsType;
-
 const SalaryStep = props => {
 
   const dispatch = useDispatch();
@@ -131,7 +112,7 @@ SalaryStep.propTypes = {
 //     setSalaryValue,
 // })(Radium(SalaryStep));
 
-const mapStateToProps = (state: RootState) => {
+const mapStateToProps = (state) => {
   return {
     salaryValue: state.salary.salaryValue,
     authModalIsOpen: state.modal[AUTH_MODAL].isOpen,

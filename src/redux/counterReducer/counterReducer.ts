@@ -52,11 +52,11 @@ const initialState: CounterReducerInitialState = {
 }
 
 // is thunk necessary here? If not, it should be removed
-export const toggleCounterState = () => (dispatch, _) => {
+export const toggleCounterState = () => (dispatch: any, _: any) => {
   return dispatch({ type: TOGGLE_COUNTER_STATE });
 };
 
-export const initializeACounter = (token) => (dispatch, _) => {
+export const initializeACounter = (token: any) => (dispatch: any, _: any) => {
   dispatch(toggleAppState());
   dispatch(setCounterSalaryStep(null));
   dispatch(toggleCounterState());
@@ -75,7 +75,7 @@ export const initializeACounter = (token) => (dispatch, _) => {
     // });
 }
 
-export const setCounterSalaryStep = multiplier => (dispatch, getState) => {
+export const setCounterSalaryStep = (multiplier: any) => (dispatch: any, getState: any) => {
   const state = getState(); /** @info can be done in a reducer as well*/
 
   const salary = state.salary.salaryValue;
@@ -95,7 +95,7 @@ export const setCounterSalaryStep = multiplier => (dispatch, getState) => {
   });
 }
 
-const counterReducer = (state = initialState, action) => {
+const counterReducer = (state = initialState, action: any) => {
   switch(action.type) {
 
     case SET_COUNTER_SALARY_STEP:

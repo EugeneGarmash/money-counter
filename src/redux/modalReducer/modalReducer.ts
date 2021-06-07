@@ -85,7 +85,7 @@ export const closeModal = (modalName: string): CloseModalActionType => { // Clos
   }
 }
 
-const modalReducer = (state = initialState, action): ModalReducerInitialState => {
+const modalReducer = (state = initialState, action: any): ModalReducerInitialState => {
   switch(action.type) {
 
     case OPEN_MODAL:
