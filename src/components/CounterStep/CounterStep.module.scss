@@ -27,10 +27,9 @@
 .CounterStep__viewContainerBody {
   display: flex;
   width: 85%;
-  flex-grow: 1;
+  max-width: 85%;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
 }
 
 

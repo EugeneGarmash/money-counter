@@ -1,30 +1,3 @@
-SalaryStep
-CounterStep
-
-
-
-TODOS
-
-широкие, но невысокие экраны
-
-Модалка аус уходит за менюМадоал
-
-
-
-
-
-
-// сохранять зарплату, если вошёл в аккаунт:
-// сохранять зарплату по стопу
-// сохранять зарплату, когда выхожу с приложения
-
-
-
-// remove auth !!
-// but some fake api
-
-
-
 1) share with friends buttons
   const shareViaWhatsApp = () => {
     window.location.href = `whatsapp://send?text=${shareText}`;
@@ -41,50 +14,47 @@ TODOS
   const shareViaEmail = () => {
     window.location.href = `mailto:?body=${shareText}`;
   };
-
-2) Context
-
-3)
-  Redux toolkit - slices
-  Reselect
-
-4) Debounce
-  обрабатывать большие гривны
-    - https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
-    - https://www.google.com/search?q=format+number+js&oq=format+Number+js&aqs=chrome.0.0l8.5013j0j7&sourceid=chrome&ie=UTF-8
-
-5) profile page - useHistory, useParams, useRouteMatch
-
-6) Multipliers (change income ,ay be redundant)
-
-7)
+2) широкие, но невысокие экраны
+3) // console.log('FIRE'); // постоянный ререндер из-за счётчика - не стейт, а контекст или реф
+4)
 Remove className duplication
 https://www.google.com/search?q=css+modules+name+duplication&oq=css+modules+name+du&aqs=chrome.1.69i57j33i22i29i30.6513j0j7&sourceid=chrome&ie=UTF-8
 to avoid AppMainButton__AppMainButton you should play with webpack config file*/
 using linter with custom settings
 
-6) SWR
 
-7) other project todos
+5)
+  Redux toolkit - slices
+  Reselect
+6) SalaryStep --> firebase
+    // сохранять зарплату, если вошёл в аккаунт:
+    // сохранять зарплату по стопу
+    // сохранять зарплату, когда выхожу с приложения
+    // remove auth !!
+    // but some fake api
+    // SWR
+7) Модалка аус уходит за менюМадоал
 
-8) styling
-
-0) refactor COUNTER - make it simpler - refactor app state to something more precise
 
 
 
-You see a money counter written on JS programming
+
+
+
+
+You see a money counter written on the JS programming
 language with demonstration purposes.
-The belowmentioned technologies and techniques are used:
+The belowmentioned technologies and techniques are used for practice:
 
 JS:
 - React
 1. React hooks
-2. Context API
+2. Context API --??
 3. React-router
 4. Class components
 5. Functional components
-6. classNames library
+6. various libraries
+
 - Redux
 1. react-redux
 2. redux hooks
@@ -97,4 +67,4 @@ Styling
 4. SCSS (variables, mixins and nesting)
 5. Inline styling
 6. External font usage
-7. Custom Favicon use ( - )
+7. Custom Favicon use

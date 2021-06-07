@@ -28,6 +28,9 @@ const StyledDisclaimer = styled.p<StyledDisclaimerType>`
 
 const StyledH1 = styled.h1`
   margin: 0;
+  @media (max-width: 410px) {
+    font-size: calc(10px + 5vmin);
+  }
 `
 const AppHeader = () => {
 
@@ -46,7 +49,7 @@ const AppHeader = () => {
         />
       </div>
 
-      <div className=''>
+      <div className='AppHeader__header'>
         <StyledH1>Money counter</StyledH1>
         <StyledDisclaimer margin='0'>
           See how much your time cost
@@ -61,13 +64,25 @@ const AppHeader = () => {
         .AppHeader {
           display: flex;
           flex-direction: row;
-          justify-content: flex-start;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 45px;
+          min-height: 50px;
         }
         .AppHeader__MenuToggleButtonContainer {
           display: flex;
           justify-content: center;
           align-items: center;
           margin-right: 30px;
+        }
+        @media (max-width: 430px) {
+          .AppHeader__MenuToggleButtonContainer {
+            margin-right: 0;
+          }
+          .AppHeader {
+            justify-content: space-between;
+            margin-bottom: 15px;
+          }
         }
       `}</style>
     </header>

@@ -5,7 +5,6 @@ import {
   useDispatch,
 } from 'react-redux';
 import getCorrectTimeName from '../../utils/getCorrectTimeName';
-/** @todo */
 import AdditionalInfo from './AdditionalSalaryInfo';
 import Multipliers from './Multipliers/Multipliers';
 import Animation from '../Animation/Animation';
@@ -81,10 +80,6 @@ const CounterStep = ({counterState}) => {
           </Button>
         </div>
       </div>
-
-
-
-
     </>
   );
 }

@@ -19,15 +19,6 @@ declare global {
   }
 }
 
-// const composeEnhancers =
-//   process.env.NODE_ENV === 'development'
-//   /** @todo create global ts config */
-//     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-//     : null ||
-//   // window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({ trace: true, traceLimit: 25 }) ||
-//   compose
-// ;
-
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(

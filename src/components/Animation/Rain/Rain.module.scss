@@ -1,14 +1,16 @@
 .rainyWeather {
   pointer-events: none;
-  top:100px;
+  top: 100px;
   margin: 3em auto;
-  width: 350px;
-  height: 400px; // 300 ?
+  width: 100%;
+  max-width: 350px;
+  height: 400px;
   position: relative;
 }
 
 .cloudMain {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: 130px;
   background: #ccc;
   border-radius: 100em;
@@ -17,11 +19,11 @@
   top: 50px;
   box-shadow: 0 3px 5px rgba(0,0,0, 0.3);
   background: linear-gradient(#F2F2F2 70%, #E5E5E5);
-  
 }
 
 .cloudCenter {
   width: 180px;
+  max-width: 51.45%;
   height: 180px;
   margin: 0 auto;
   background: #F2F2F2;
@@ -34,6 +36,7 @@
 .cloudLeft {
   width: 130px;
   height: 130px;
+  max-width: 37.15%;
   margin: 0 auto;
   background: #F2F2F2;
   position: absolute;
@@ -47,14 +50,14 @@
   height: 35px;
   background: radial-gradient(center, farthest-corner,  #A4DDF5, #76CBF1);
   background:  -webkit-radial-gradient(center, farthest-corner,  #A4DDF5, #76CBF1);
-  position: absolute;  
+  position: absolute;
   border-radius: 10px 10px 10px 10px / 30px 30px 10px 10px;
   box-shadow: 0 1px 3px rgba(0,0,0, 0.1);
 }
 
 .droplet1, .droplet4 {
   right: 70px;
-  top: 100px; 
+  top: 100px;
 }
 
 .droplet2, .droplet5 {
@@ -74,12 +77,6 @@
 }
 
 .droplet.paused {
-// .droplet1.paused,
-// .droplet2.paused,
-// .droplet3.paused,
-// .droplet4.paused,
-// .droplet5.paused,
-// .droplet6.paused {
   animation-play-state: paused;
 }
 
@@ -88,12 +85,12 @@
     transform: rotate(30deg) translate(0,0);
     opacity: 1;
   }
-  
+
   90% {
     transform: rotate(30deg) translate(0, 130px);
     opacity: 1;
   }
-  
+
   100% {
     transform: rotate(30deg) translate(0, 140px);
    }
@@ -103,12 +100,12 @@
     transform: rotate(30deg) translate(0,0);
     opacity: 1;
   }
-  
+
   90% {
     transform: rotate(30deg) translate(0, 130px);
     opacity: 1;
   }
-  
+
   100% {
     transform: rotate(30deg) translate(0, 140px);
      opacity: 0;

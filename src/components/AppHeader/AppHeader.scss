@@ -1,18 +1,6 @@
 @import '../../services/mixins.scss';
 
 .AppHeader {
-  position: relative;
-  margin-bottom: 45px;
-}
-
-.AppHeader__muteButtonContainer {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(0, -50%);
-}
-
-.AppHeader {
   @include fl-col-jc(center);
   font-size: calc(10px + 2vmin);
 }

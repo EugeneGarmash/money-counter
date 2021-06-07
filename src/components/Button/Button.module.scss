@@ -1,4 +1,4 @@
-@import '../../services//mixins.scss';
+@import '../../services/mixins.scss';
 
 .Button {
   @include fl-ja(center, center);
@@ -14,26 +14,28 @@
   height: 50px;
   text-decoration: none;
 
-  &:hover,
-  &:focus {
-    background-color: rgba(230, 224, 224, 0.5);
-    border: 2px solid rgba(230, 224, 224, 0.5);
-    outline: none;
-    color: #282c34;
-  }
-
   &:disabled {
     background-color: rgba(230, 224, 224, 0.5);
     border: 2px solid rgba(230, 224, 224, 0.5);
   }
 
   @include desktop {
-    &:focus {
-      background-color: rgba(230, 224, 224, 0.7);
-      border: 2px solid rgba(230, 224, 224, 0.7);
+    &:hover {
+      background-color: rgba(230, 224, 224, 0.5);
+      border: 2px solid rgba(230, 224, 224, 0.5);
+      outline: none;
+      color: #282c34;
     }
   }
 
+  @include phone_tablet {
+    &:active {
+      background-color: rgba(230, 224, 224, 0.5);
+      border: 2px solid rgba(230, 224, 224, 0.5);
+      outline: none;
+      color: #282c34;
+    }
+  }
 }
 
 .Button_disabled {
