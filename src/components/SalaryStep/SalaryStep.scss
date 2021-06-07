@@ -1,0 +1,36 @@
+@import '../../services/mixins.scss';
+
+.SalaryStep {
+  @include fl-col;
+  margin: 0;
+}
+.SalaryStep__topText {
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+.SalaryStep__bottomText {
+  font-size: 30px;
+}
+.SalaryStep__buttonContainer {
+  margin-bottom: 20px;
+}
+
+/* @info --> Radium used instead */
+
+// .App__salaryInput {
+//   padding: 10px;
+//   border: none;
+//   border-radius: 3px;
+//   max-width: 100%;
+//   color: #282c34;
+//   font-size: 50px;
+//   margin-bottom: 20px;
+//   text-align: center;
+//   background-color: rgba(230, 224, 224, 0.5);
+
+//   &:hover,
+//   &:focus {
+//     outline: none;
+//     background-color: rgba(230, 224, 224, 0.7);
+//   }
+// }

@@ -1,0 +1,96 @@
+// @media mixins
+
+@mixin phone { 
+  @media (max-width: 767px) { @content; }
+}
+@mixin phone_tablet {
+  @media (max-width: 999px) { @content; }
+}
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 999px) { @content; }
+}
+@mixin tablet_desktop {
+  @media (min-width: 768px) { @content; }
+}
+@mixin desktop {
+  @media (min-width: 1000px) { @content; }
+}
+
+
+// @mixin tablet_desktop-xs {
+//   @media (max-width: 1280px) { @content; }
+// }
+
+// @mixin desktop-xs {
+//   @media (min-width: 1000px) and (max-width: 1280px) { @content; }
+// }
+
+// @mixin desktop-md {
+//   @media (min-width: 1280px) and (max-width: 1549px) { @content; }
+// }
+
+// @mixin desktop-lg {
+//   @media (min-width: 1549px) { @content; } // and (max-width: 1999px)
+// }
+
+// @mixin desktop-xl {
+//   @media (min-width: 2000px) { @content; } // and (max-width: 2499px)
+// }
+
+
+// flex mixins
+
+@mixin fl-col() {
+  display: flex;
+  // flex-wrap: wrap;
+  flex-direction: column;
+}
+@mixin fl-jc($justify-content) {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: $justify-content;
+}
+@mixin fl-ai($align-items) {
+  display: flex;
+  // flex-wrap: wrap;
+  align-items: $align-items;
+}
+@mixin fl-ja($justify-content, $align-items) {
+  display: flex;
+  // flex-wrap: wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+@mixin fl-col-jc($justify-content) {
+  display: flex;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: $justify-content;
+}
+@mixin fl-col-ai($align-items) {
+  display: flex;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  align-items: $align-items;
+}
+@mixin fl-col-ja($justify-content, $align-items) {
+  display: flex;
+  // flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+// other mixins: size, absolute centering
+
+@mixin size($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin centering($top: 50%, $left: 50%) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+}

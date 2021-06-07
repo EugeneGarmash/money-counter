@@ -1,0 +1,23 @@
+@import '../../services/mixins.scss';
+
+.AppStepManager {
+  margin-bottom: 20px;
+  flex-grow: 1;
+  @include fl-col();
+}
+
+
+.link {
+  text-decoration: none;
+  color: #e6e0e0;
+}
+
+.linkContainer {
+  margin-bottom: 20px;
+}
+
+@media (max-height: 695px) {
+  .AppStepManager {
+    margin-bottom: 12.5px;
+  }
+}

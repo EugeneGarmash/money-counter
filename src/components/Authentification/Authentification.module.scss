@@ -1,0 +1,35 @@
+.Authentification {
+  width: 350px;
+}
+
+.Authentification__formContainer {
+  margin-bottom: 20px;
+}
+
+.Authentification__buttonContainer {
+  margin-bottom: 20px;
+}
+
+.Authentification__input {
+  padding: 6x;
+  height: 50px;
+  border: none;
+  border-radius: 3px;
+  max-width: 100%;
+  color: #282c34;
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgba(230, 224, 224, 0.5);
+}
+.Authentification__input:hover,
+.Authentification__input:focus {
+   outline: none;
+   background-color: rgba(230, 224, 224, 0.7);
+}
+
+@media (max-width: 767px) {
+  .Authentification {
+    width: 100%;
+  }
+}

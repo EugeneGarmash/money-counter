@@ -1,0 +1,40 @@
+@import '../../services/mixins.scss';
+
+.CounterStep {
+  font-size: calc(10px + 5vmin);
+  font-weight: bold;
+}
+
+.CounterStep__noPaddingItem {
+  margin: 0;
+}
+
+.mainInfoContainer {
+  margin-bottom: 35px;
+}
+
+.CounterStep__entertainmentModes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include fl-jc(space-between);
+}
+
+.CounterStep__entertainmentItem {
+  flex-grow: 1;
+}
+
+@include phone_tablet {
+  .mainInfoContainer {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-height: 695px) {
+  .mainInfoContainer {
+    margin-bottom: 12.5px;
+  }
+  .CounterStep__salaryPerSecond {
+    margin: 7.5px 0;
+  }
+}

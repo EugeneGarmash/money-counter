@@ -1,0 +1,43 @@
+// @import 'customNormalizeResetbyEV';
+// @import 'variables.scss';
+@import '../../services/mixins.scss';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root,
+.App,
+#root > [data-radium] {
+  height: 100%;
+  // overflow: hidden;
+  min-width: 375px;
+  min-height: 667px;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  padding: 40px 10px 10px;
+  @include fl-jc(center);
+  color: #e6e0e0;
+}
+
+.container {
+  width: 100%;
+  @include fl-col;
+
+  @include tablet_desktop {
+    max-width: 600px;
+  }
+}
+
+@include phone_tablet {
+  .App {
+    padding: 15px 10px;
+  }
+}

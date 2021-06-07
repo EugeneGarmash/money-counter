@@ -1,0 +1,1 @@
+export const SET_SALARY_VALUE = 'SET_SALARY_VALUE';

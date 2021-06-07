@@ -1,0 +1,37 @@
+@import '../../services/mixins.scss';
+
+.AppFooter__primaryButtonContainer {
+  @include fl-col-jc(flex-end);
+  min-height: 120px;
+  margin-bottom: 15px;
+}
+
+.AppFooter__secondaryButtonContainer {
+  @include fl-ja(center, center);
+}
+
+.Footer__secondaryButton {
+  @include fl-ja(center, center);
+  background: transparent;
+  color: inherit;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid transparent;
+
+  &:hover {
+    border-bottom: 1px solid rgba(230, 224, 224, 0.5);
+  }
+  &:focus {
+    border-bottom: 1px solid rgba(230, 224, 224, 0.7);
+    outline: none;
+  }
+}
+
+@include phone_tablet {
+  .AppFooter__primaryButtonContainer {
+    // flex-direction: row;
+    min-height: 0;
+    margin-bottom: 0;
+  }
+
+}

@@ -1,0 +1,186 @@
+$tan: #f8f2e6;
+$gold: #b89144;
+$blue: #56b3b4;
+$darkBlue: #163b38;
+
+.triangles {
+  position: relative;
+  width: 315px;
+  height: 315px;
+  overflow: hidden;
+}
+
+.triangle1 {
+  width: 115px;
+  height: 310px;
+  background-color: white;
+  background-image: url(https://i.imgur.com/Y5wWEj9.jpg);
+  background-size: cover;
+  background-position: 55% 50%;
+  // filter: grayscale(100%); // @todo autumn
+  position: absolute;
+  bottom: 0px;
+  left: 156px;
+  -webkit-clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+  clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+  z-index: 1;
+
+  &::before{
+    content: "";
+    position: absolute;
+    background-color: $blue;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .6;
+  }
+}
+
+.triangle2 {
+  width: 60px;
+  height: 172.9px;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 115px;
+  background-image: url(https://i.imgur.com/XDJ1az0.jpg);
+  background-size: cover;
+  background-position: 55% 40%;
+  -webkit-clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+  clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+
+  &::before{
+    content: "";
+    position: absolute;
+    background-color: $gold;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .6;
+  }
+}
+
+.triangle3 {
+  width: 90px;
+  height: 257px;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 52px;
+  background-image: url(https://i.imgur.com/Y5wWEj9.jpg);
+  background-size: 180%;
+  background-position: 50% 100%;
+  -webkit-clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+  clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+
+  &::before{
+    content: "";
+    position: absolute;
+    background-color: $darkBlue;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .75;
+  }
+}
+
+.triangle5{
+  width: 75px;
+  height: 208px;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 25px;
+  background-image: url(https://i.imgur.com/Y5wWEj9.jpg);
+  background-size: cover;
+  background-position: 55% 40%;
+  -webkit-clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+  clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+
+  &::before{
+    content: "";
+    position: absolute;
+    background-color: $gold;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .6;
+  }
+}
+
+.triangle6{
+  width: 45px;
+  height: 123px;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-image: url(https://i.imgur.com/MqoPMmU.jpg);
+  background-size: 320%;
+  background-position: 40%;
+  -webkit-clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+  clip-path: polygon(50% 0%, 5% 100%, 95% 100%);
+
+  &::before{
+    content: "";
+    position: absolute;
+    background-color: $darkBlue;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .75;
+  }
+}
+
+.sun {
+  position: absolute;
+  height: 95px;
+  width: 95px;
+  border-radius: 50%;
+  background-color: $gold;
+  // bottom: 185px;
+  // left: 215px;
+  bottom: 60px;
+  left: 330px;
+  background-image: url(https://i.imgur.com/MqoPMmU.jpg);
+  background-size: 115%;
+  background-position: 40%;
+
+  animation: movesun 16s linear normal infinite running;
+
+   &::before{
+    content: "";
+    position: absolute;
+    background-color: $gold;
+    border-radius: 50%;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .7;
+  }
+}
+
+.sun.paused {
+  animation-play-state: paused;
+}
+
+@keyframes movesun {
+  0% {
+    bottom: 60px;
+    left: 330px;
+  }
+  50% {
+    bottom: 250px;
+    left: 125px;
+  }
+  100% {
+    bottom: -95px;
+    left: -95px;
+  }
+}

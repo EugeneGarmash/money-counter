@@ -1,0 +1,43 @@
+@import '../../services//mixins.scss';
+
+.Button {
+  @include fl-ja(center, center);
+
+  width: 100%;
+  font-size: 1.5em;
+  font-family: inherit;
+  padding: 0;
+  border: 2px solid #e6e0e0;
+  border-radius: 3px;
+  background: transparent;
+  color: inherit;
+  height: 50px;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    background-color: rgba(230, 224, 224, 0.5);
+    border: 2px solid rgba(230, 224, 224, 0.5);
+    outline: none;
+    color: #282c34;
+  }
+
+  &:disabled {
+    background-color: rgba(230, 224, 224, 0.5);
+    border: 2px solid rgba(230, 224, 224, 0.5);
+  }
+
+  @include desktop {
+    &:focus {
+      background-color: rgba(230, 224, 224, 0.7);
+      border: 2px solid rgba(230, 224, 224, 0.7);
+    }
+  }
+
+}
+
+.Button_disabled {
+  background-color: rgba(230, 224, 224, 0.5);
+  border: 2px solid rgba(230, 224, 224, 0.5);
+}
+

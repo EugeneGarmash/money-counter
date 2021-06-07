@@ -1,0 +1,17 @@
+@import '../../services/mixins.scss';
+
+.AppMainButton__buttonContainer {
+  margin-bottom: 20px;
+}
+
+@include phone_tablet {
+  .AppMainButton__buttonContainer {
+    width: 100%;
+    margin-bottom: 0;
+    margin-right: 10px;
+  }
+  .AppMainButton__pausedButtonsContainer {
+    display: flex;
+
+  }
+}
