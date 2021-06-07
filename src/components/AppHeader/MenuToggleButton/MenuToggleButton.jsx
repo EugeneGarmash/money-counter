@@ -8,19 +8,18 @@ import {
 } from '../../../redux/modalReducer/modalReducer';
 
 
-const MenuToggleButton = () => {
-  const dispatch = useDispatch();
-  const mobileMeuIsOpen = useSelector(s => s.modal[MENU_MODAL].isOpen);
-  const handleToggleMenu = () => {
-    dispatch(openModal(MENU_MODAL));
-  }
+const MenuToggleButton = (props) => {
+  const {
+    handleToggleMenu,
+    closeMode,
+  } = props;
 
   return (
     <div
       onClick={handleToggleMenu}
       className={cn(
         classes.MenuToggleButton , {
-        [classes.MenuToggleButton_open]: mobileMeuIsOpen,
+        [classes.MenuToggleButton_open]: closeMode,
       })
     }>
       <span></span>

@@ -37,7 +37,6 @@ export const setPersonalData = payload => {
 //   }
 //   testaxios.get(`/salaries/${userId}.json`)
 //       .then(response => {
-//           // console.log("getPersonalData -> response", response.data);
 //           return dispatch(setPersonalData(response.data));
 //       });
 // }
@@ -79,7 +78,6 @@ export const checkAuthTimeout = expirationTime => (dispatch) => {
   //   dispatch(logout());
   // }, expirationTime * 1000)
 
-  console.log('checkAuthTimeout');
 
   return {
     type: AUTH_CHECK_TIMEOUT,

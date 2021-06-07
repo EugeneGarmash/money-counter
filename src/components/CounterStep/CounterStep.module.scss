@@ -24,6 +24,29 @@
   flex-grow: 1;
 }
 
+.CounterStep__viewContainerBody {
+  display: flex;
+  width: 85%;
+  flex-grow: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+
+.CounterStep__viewContainer {
+  display: flex;
+  justify-content: space-between;
+  min-height: 380px;
+}
+
+.CounterStep__changeViewMode {
+  margin-left: 20px;
+  display: flex;
+  height: 100%;
+  width: 50px;
+}
+
 @include phone_tablet {
   .mainInfoContainer {
     margin-bottom: 20px;

@@ -1,4 +1,3 @@
-import React from 'react'
 import { useSelector } from 'react-redux';
 import SalaryStep from '../SalaryStep/SalaryStep';
 import CounterStep from '../CounterStep';
@@ -12,7 +11,7 @@ const AppStepManager = props => {
     {
       appIsInSalaryStep
         ? <SalaryStep />
-        : <CounterStep counterState={props.counterState}/>
+        : <CounterStep counterState={props.counterState} />
     }
   </main>
   );

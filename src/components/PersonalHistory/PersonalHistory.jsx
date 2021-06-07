@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, Redirect } from 'react-router-dom';
+
 // import { getSalaries } from '../../redux/authReducer/authActionCreators';
 import { AUTH_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
-
 
 import './PersonalHistory.scss'
 import cn from 'classnames';
@@ -22,7 +22,7 @@ const PersonalHistory = () => {
     // }
 
     if (!userIsAuthentificated) {
-      dispatch(openModal(AUTH_MODAL));
+      // dispatch(openModal(AUTH_MODAL));
     }
 
   }, [dispatch, userIsAuthentificated])

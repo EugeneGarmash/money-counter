@@ -4,13 +4,17 @@ import MenuToggleButton from './MenuToggleButton';
 
 import './AppHeader.scss';
 import MuteButton from '../Button/MuteButton';
+import { useDispatch, useSelector } from 'react-redux';
+import { MENU_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
+import { RootState } from '../../redux/store';
 
 
 interface StyledDisclaimerType {
   margin: string;
 }
 
-/** @info returns a react component
+/**
+ * @info returns a react component
  * to modify styles use `props => condition ? a : b ` in template literals
  * but do not forget to pass props first
  * */
@@ -27,10 +31,19 @@ const StyledH1 = styled.h1`
 `
 const AppHeader = () => {
 
+  const dispatch = useDispatch();
+  const mobileMeuIsOpen = useSelector((s: RootState) => s.modal[MENU_MODAL].isOpen);
+  const handleToggleMenu = () => {
+    dispatch(openModal(MENU_MODAL));
+  }
+
   return (
     <header className="AppHeader">
       <div className='AppHeader__MenuToggleButtonContainer'>
-        <MenuToggleButton />
+        <MenuToggleButton
+          closeMode={mobileMeuIsOpen}
+          handleToggleMenu={handleToggleMenu}
+        />
       </div>
 
       <div className=''>

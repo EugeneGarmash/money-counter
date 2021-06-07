@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleVolume } from '../../redux/audioReducer/audioReducer';
+import Button from '../Button/Button';
 
 import classNames from 'classnames';
 import classes from './MuteButton.module.scss';
@@ -19,14 +20,17 @@ const MuteButton = () => {
   }
 
   return (
-    <div
-      className={classNames(
-        [classes.MuteButton], {
-        [classes.muted]: muted,
-      })}
-      onClick={() => dispatch(handleVolume(muted ? 1 : 0))}
-    >
-      <span></span>
+    <div className={classes.MuteButtonContainer}>
+      <Button onClick={() => dispatch(handleVolume(muted ? 1 : 0))}>
+        <div
+          className={classNames(
+            [classes.MuteButton], {
+            [classes.muted]: muted,
+          })}
+        >
+          <span></span>
+        </div>
+      </Button>
     </div>
   );
 }

@@ -18,7 +18,7 @@ import { RootState } from '../../redux/store';
 // USE PARAMS
 
 type PropsType = {
-  // openModal: 
+  // openModal:
 }
 
 const MenuModal = () => {
@@ -69,16 +69,16 @@ const MenuModal = () => {
                 </NavLink>
               </li>
           ))}
-          <li>
+          {/* <li>
             <Button
               onClick={handleOpenModal}
             >
               Auth
             </Button>
-          </li>
+          </li> */}
         </ul>
 
-        <p></p>
+        {/* <p></p> */}
 
       </div>
       <style jsx>{`

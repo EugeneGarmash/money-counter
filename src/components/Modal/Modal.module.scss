@@ -9,22 +9,9 @@
 }
 
 .Modal__closeButton {
-  width: 40px;
-  height: 40px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 8px;
-  font-size: 12px;
-  color: rgb(49, 42, 41);
-  background-color: rgb(255, 255, 255);
-  border-radius: 50%;
-  // width: 25px;
-  // height: 25px;
-  // background-color: orange;
-  top: 10px;
+  top: 20px;
   right: 10px;
   position: absolute;
-}
-.Modal__closeButton:before {
-  content: 'x';
 }
 
 .Modal {

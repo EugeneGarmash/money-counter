@@ -1,12 +1,10 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-// import 
+// import
 
 const Audio = () => {
   const dispatch = useDispatch();
   const entertainmentMode = useSelector(s => s.audio.entertainmentMode);
-
-  console.log('Audio updated');
 
 
   // setTimeout(

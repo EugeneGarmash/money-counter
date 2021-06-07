@@ -1,7 +1,5 @@
 import React from 'react';
-
 import AppMainButton from '../AppMainButton';
-
 import './AppFooter.scss';
 
 type PropsType = {

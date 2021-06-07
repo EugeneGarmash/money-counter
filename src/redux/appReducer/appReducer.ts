@@ -57,13 +57,11 @@ export const changeEntertainmentMode = (payload: any) => (dispatch: any, getStat
 
   // 1
   // if (!counterIsActive) { // leave audio muted
-  //   console.log("🚀 ~ file: appReducer.js ~ line 38 ~ counterIsActive", counterIsActive, audioInstance);
   //   return;
   // }
 
   // 2
   if (!counterIsActive) {
-    console.log('!!!!!!!!!!!');
     dispatch(pauseAudio());
     dispatch(changeSource(sound));
     return;

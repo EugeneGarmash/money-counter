@@ -2,7 +2,6 @@ import React, {
   Suspense,
   useEffect,
   useState,
-  // useRef,
 } from 'react';
 import {
   useDispatch,
@@ -14,39 +13,26 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-
 import {
   // openModal,
   // closeModal,
   // MENU_MODAL,
   // AUTH_MODAL,
 } from '../../redux/modalReducer/modalReducer';
-
 import AppHeader  from '../AppHeader/AppHeader';
 import AppStepManager from '../AppStepManager';
 import Spinner from '../Spinner';
 import { routes } from '../../utils/constants';
 import Audio from '../Audio/Audio';
+import Counter from '../Counter/Counter';
+import Modals from '../Modals/Modals';
+import './App.scss';
 // import Modals from '../Modals/Modals';
 // import handleActiveTabClose from '../../utils/handleActiveTabClose';
-import Counter from '../Counter/Counter';
 import { checkUserAuth } from '../../redux/authReducer/authActionCreators';
-import Modals from '../Modals/Modals';
-
-import './App.scss';
+import PersonalHistory from '../PersonalHistory';
+// const PersonalHistory = React.lazy(() => import('../PersonalHistory'));
 const AppFooter = React.lazy(() => import('../AppFooter'));
-const PersonalHistory = React.lazy(() => import('../PersonalHistory'));
-
-// probably should be used in Route component
-// const AsyncModals = asyncComponent(() => import('../Modals/Modals'));
-
-// сохранять зарплату, если вошёл в аккаунт:
-// сохранять зарплату по стопу
-// сохранять зарплату, когда выхожу с приложения
-
-
-
-
 
 const App = () =>  {
 
@@ -58,7 +44,7 @@ const App = () =>  {
     add a Counter component and some state in App and pass the to CounterStep
     and MainButton (to stop it)
   */
-  const [counterState, setCounterPassed] = useState({ // @todo instant rerendering // use a ref
+  const [counterState, setCounterPassed] = useState({ /** @todo use context */
     secondsPassed: 0,
     counterValue: 0,
     paused: counterIsActive,
@@ -66,9 +52,7 @@ const App = () =>  {
 
   useEffect(() => {
     // handleActiveTabClose(); /** @info should be active - but only if counter is active */
-
-    dispatch(checkUserAuth());
-
+    // dispatch(checkUserAuth());
   }, [dispatch]);
 
   return (
@@ -78,22 +62,18 @@ const App = () =>  {
           <div className='container'>
             <AppHeader/>
 
-
-{/**
- * memoization
- * redux - try redux
- * 
- */}
-
             <Switch>
+
               <Route path={routes.info}>
                 <p>I am Eugene Garmash and I am a web developer</p>
               </Route>
-              <Route path={routes.personal}>
+
+              {/* <Route path={routes.personal}>
                 <Suspense fallback={<div>LOADING...</div>}>
                   <PersonalHistory />
                 </Suspense>
-              </Route>
+              </Route> */}
+
               <Route path={routes.main}>
                 <AppStepManager counterState={counterState} />
                 <Suspense fallback={null}>
@@ -103,6 +83,7 @@ const App = () =>  {
                   />
                 </Suspense>
               </Route>
+
             </Switch>
 
 
@@ -112,8 +93,11 @@ const App = () =>  {
               counterIsActive={counterIsActive}
               setCounterPassed={setCounterPassed}
             />
+
             <Spinner />
+
             <Audio />
+
             <Modals />
 
 

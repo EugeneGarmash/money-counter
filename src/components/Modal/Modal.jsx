@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import classes from './Modal.module.scss';
 import cn from 'classnames';
+import MenuToggleButton from '../AppHeader/MenuToggleButton';
 
 const Modal = props => {
 
@@ -31,7 +32,12 @@ const Modal = props => {
 
     return (
       <div className={classes.Modal_overlay} onClick={handleClose}>
-        <button className={classes.Modal__closeButton} onClick={handleClose} />
+        <div className={classes.Modal__closeButton}>
+          <MenuToggleButton
+            onClick={handleClose}
+            closeMode={true}
+          />
+        </div>
         <div
           onClick={handleModalClick}
           className={cn(

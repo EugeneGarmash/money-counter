@@ -24,7 +24,7 @@ const AdditionalSalaryInfo = props => {
               key={additionaly.time}
               className={classes.AdditionalSalaryInfo__additionaly}
             >
-              You will make ~{salaryFormatted} items {additionaly.time}
+              You make ~{salaryFormatted} items {additionaly.time}
             </li>
           );
         })

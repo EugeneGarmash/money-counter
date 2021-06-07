@@ -5,7 +5,7 @@ import seaWav from '../static/sea.wav';
 // import bellsWav from '../static/bells.wav';
 
 const routes = {
-  personal: '/personal_history',
+  // personal: '/personal_history',
   info: '/info',
   main: '/',
 }

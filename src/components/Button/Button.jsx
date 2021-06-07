@@ -1,10 +1,13 @@
 import React from 'react';
+import classNames from 'classnames';
 import classes from './Button.module.scss';
 
 const Button = props => {
   return (
     <button
-      className={classes.Button}
+      className={classNames(classes.Button, {
+        [classes.Button__fullHeight]: props.fullHeight,
+      })}
       onClick={props.onClick}
       disabled={props.disabled}
     >

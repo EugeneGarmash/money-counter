@@ -43,7 +43,7 @@ const salaryInputStyles = {
 
 const SalaryStep = props => {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const isLoggedIn = useSelector(s => s.auth.success.token);
   // const userIsAuthentificated = useSelector(s => s.auth.success.token);
 
@@ -51,14 +51,17 @@ const SalaryStep = props => {
     props.setSalaryValue(event.target.value);
   }
   const handlePressEnter = (event) => {
-    if (event.key === 'Enter' && props.salaryValue) {
+    if (
+      event.key === 'Enter' &&
+      props.salaryValue
+    ) {
       props.initializeACounter(isLoggedIn);
     }
   }
 
-  const handleLogout = () => {
-    dispatch(logout());
-  }
+  // const handleLogout = () => {
+  //   dispatch(logout());
+  // }
 
   return (
     <div className='SalaryStep'>
@@ -75,7 +78,8 @@ const SalaryStep = props => {
       <br />
       <div className='SalaryStep__testBlock'>
         {/* { isLoggedIn
-            ? <div>
+            ?
+            <div>
               <div className='SalaryStep__buttonContainer'>
                 <Button
                   onClick={handleLogout}
@@ -131,6 +135,7 @@ export default connect(
   mapDispatchToProps,
 )(Radium(SalaryStep));
 
+/** @info second way */
 // export default connect(
 //   state => ({
 //     salaryValue: state.salary.salaryValue,

@@ -52,7 +52,6 @@ type PropsFromRedux = ConnectedProps<typeof connector>
 
 type Props = PropsType & PropsFromRedux
 
-
 const AppMainButton = (props: any) => {
 
   const {

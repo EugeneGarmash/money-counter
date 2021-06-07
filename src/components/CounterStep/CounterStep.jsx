@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import classes from './CounterStep.module.scss';
 import {
   useSelector,
@@ -6,8 +6,8 @@ import {
 } from 'react-redux';
 import getCorrectTimeName from '../../utils/getCorrectTimeName';
 /** @todo */
-// import AdditionalInfo from './AdditionalSalaryInfo';
-// import Multipliers from './Multipliers/Multipliers';
+import AdditionalInfo from './AdditionalSalaryInfo';
+import Multipliers from './Multipliers/Multipliers';
 import Animation from '../Animation/Animation';
 import { entertainmentMode } from '../../utils/constants';
 import { changeEntertainmentMode } from '../../redux/appReducer/appReducer';
@@ -18,6 +18,11 @@ const CounterStep = ({counterState}) => {
   const counterTimeStep = useSelector(state => state.counter.counterTimeStep);
   const counterSalaryStep = useSelector(state => state.counter.counterSalaryStep);
   const appEntertainmentMode = useSelector(s => s.app.entertainmentMode);
+  const [animationIsOn, setAnimationIsOn] = useState(true);
+
+  const handleChangeView = () => {
+    setAnimationIsOn(!animationIsOn);
+  }
 
   return (
     <>
@@ -31,32 +36,55 @@ const CounterStep = ({counterState}) => {
         </p>
         <p className={classes.CounterStep__salaryPerSecond}>You get ~{counterSalaryStep.toFixed(2)} items per {counterTimeStep / 1000} second(s)</p>
       </div>
-      <Animation />
-      <ul className={classes.CounterStep__entertainmentModes}>
-        {Object.entries(entertainmentMode).map(entry => {
-          const name = entry[0];
-          return (
-            <li
-              key={name}
-              className={classes.CounterStep__entertainmentItem}
-            >
-              <Button
-                onClick={() => dispatch(changeEntertainmentMode(entry))}
-                disabled={name === appEntertainmentMode}
-              >
-                {name}
-              </Button>
-            </li>
-          )
-        })}
-      </ul>
+      <div className={classes.CounterStep__viewContainer} >
+        <div className={classes.CounterStep__viewContainerBody}>
+          {animationIsOn
+            ? (
+              <>
+                <Animation />
+                <ul className={classes.CounterStep__entertainmentModes}>
+                  {Object.entries(entertainmentMode).map(entry => {
+                    const name = entry[0];
+                    return (
+                      <li
+                        key={name}
+                        className={classes.CounterStep__entertainmentItem}
+                      >
+                        <Button
+                          onClick={() => dispatch(changeEntertainmentMode(entry))}
+                          disabled={name === appEntertainmentMode}
+                        >
+                          {name}
+                        </Button>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </>
+            )
+            : (
+              <>
+                <Multipliers />
+                <AdditionalInfo
+                  counterSalaryStep={counterSalaryStep}
+                />
+              </>
+            )
+          }
+        </div>
+        <div className={classes.CounterStep__changeViewMode}>
+          <Button
+            onClick={handleChangeView}
+            fullHeight
+          >
+            {'-->'}
+          </Button>
+        </div>
+      </div>
 
-      {/*
-        <Multipliers />
-        <AdditionalInfo
-          counterSalaryStep={counterSalaryStep}
-        />
-      */}
+
+
+
     </>
   );
 }
