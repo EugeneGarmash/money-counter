@@ -44,7 +44,7 @@ const App = () =>  {
     add a Counter component and some state in App and pass the to CounterStep
     and MainButton (to stop it)
   */
-  const [counterState, setCounterPassed] = useState({ /** @todo use context  OR REF */
+  const [counterState, setCounterPassed] = useState({ /** @todo use context OR REF */
     secondsPassed: 0,
     counterValue: 0,
     paused: counterIsActive,
