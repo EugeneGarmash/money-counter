@@ -1,6 +1,6 @@
 // @media mixins
 
-@mixin phone { 
+@mixin phone {
   @media (max-width: 767px) { @content; }
 }
 @mixin phone_tablet {

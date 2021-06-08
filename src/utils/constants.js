@@ -4,13 +4,15 @@ import rainWav from '../static/rain.wav';
 import seaWav from '../static/sea.wav';
 // import bellsWav from '../static/bells.wav';
 
-const routes = {
+export const welcomeText = 'Count your money while working';
+
+export const routes = {
   // personal: '/personal_history',
   info: '/info',
   main: '/',
 }
 
-const entertainmentMode = {
+export const entertainmentMode = {
   fire: bonfireWav,
   forest: forestWav,
   sea: seaWav,
@@ -19,9 +21,9 @@ const entertainmentMode = {
 };
 
 
-const counterTimeStepInSeconds = 1;
-const counterTimeStep = counterTimeStepInSeconds * 1000;
-const time = {
+export const counterTimeStepInSeconds = 1;
+export const counterTimeStep = counterTimeStepInSeconds * 1000;
+export const time = {
   daysInAYear: 365,
   workDaysInAYear: 261,
   monthsInAYear: 12,
@@ -30,8 +32,8 @@ const time = {
   secondsInAnHour: 3600,
 }
 
-const incomeArray = [1, 1.5, 2, 5];
-const additionalies = [
+export const incomeArray = [1, 1.5, 2, 5];
+export const additionalies = [
   {
     seconds: 60,
     time: 'per minute',
@@ -69,15 +71,4 @@ export {
   rainWav,
   seaWav,
   // bellsWav,
-
-  entertainmentMode,
-
-  routes,
-
-  counterTimeStepInSeconds,
-  counterTimeStep,
-  time,
-
-  incomeArray,
-  additionalies,
 }

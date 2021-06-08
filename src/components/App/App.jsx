@@ -10,6 +10,7 @@ import AppStepManager from '../AppStepManager';
 import { routes } from '../../utils/constants';
 import './App.scss';
 import Helpers from '../Helpers/Helpers';
+import About from '../About/About';
 const AppFooter = React.lazy(() => import('../AppFooter'));
 
 /** @todo personal history */
@@ -37,7 +38,7 @@ const App = () =>  {
             <Switch>
 
               <Route path={routes.info}>
-                <p>I am Yevhen Harmash and I'm a web developer</p>
+                <About />
               </Route>
 
               <Route path={routes.main}>

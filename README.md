@@ -1,72 +1,43 @@
-1) share with friends buttons
-  const shareViaWhatsApp = () => {
-    window.location.href = `whatsapp://send?text=${shareText}`;
-  };
+TODO BEFORE RELEASE
 
-  const shareViaViber = () => {
-    window.location.href = `viber://forward?text=${shareText}`;
-  };
-
-  const shareViaTelegram = () => {
-    window.location.href = `https://t.me/share/url?url=${window.location.protocol}//${window.location.hostname}&text=${shareText}`;
-  };
-
-  const shareViaEmail = () => {
-    window.location.href = `mailto:?body=${shareText}`;
-  };
-2) широкие, но невысокие экраны
-3) // console.log('FIRE'); // постоянный ререндер из-за счётчика - не стейт, а контекст или реф
-4)
-Remove className duplication
-https://www.google.com/search?q=css+modules+name+duplication&oq=css+modules+name+du&aqs=chrome.1.69i57j33i22i29i30.6513j0j7&sourceid=chrome&ie=UTF-8
-to avoid AppMainButton__AppMainButton you should play with webpack config file*/
-using linter with custom settings
-5) Fix readme
-6) Menu modal
-6) Remove all ts ANY
-7) convert to TS
-8) setCounterSalaryStep
-9) routing guard
-10) personal cabinet - TBD
-11) - axios
+1) Remove comments
+2) Remove all ts ANY
+3) routing guard
+4) Fix readme
+5) - axios
+  // remove auth !!
+  // but some fake api
+  // SWR
+7) Redux toolkit - slices + Reselect
+8) use Context API
+9) remove redundant files
+10) use correct share link
+11) deploy
 
 
-5)
-  Redux toolkit - slices
-  Reselect
-6) SalaryStep --> firebase
-    // сохранять зарплату, если вошёл в аккаунт:
-    // сохранять зарплату по стопу
-    // сохранять зарплату, когда выхожу с приложения
-    // remove auth !!
-    // but some fake api
-    // SWR
-7) Модалка аус уходит за менюМадоал
-
-
-
-
-
-
-
+# money-counter
+Count your money while working
+You can check the project out on [THE LINK](https://the_link)
 
 You see a money counter written on the JS programming
 language with demonstration purposes.
 The belowmentioned technologies and techniques are used for practice:
 
 JS:
+
 - React
 1. React hooks
-2. Context API --??
+2. Context API
 3. React-router
 4. Class components
 5. Functional components
-6. various libraries
+6. Various libraries
+7. Audio API
 
 - Redux
-1. react-redux
-2. redux hooks
-3. no switch case reducer usage
+1. React-redux
+2. Redux hooks
+3. No switch case reducer usage
 
 Styling
 1. Radium
@@ -77,15 +48,9 @@ Styling
 6. External font usage
 7. Custom Favicon use
 
-
-# money-counter
-Count your money while working
-You can check the project out on [THE LINK](https://the_link)
-
-
-
-
-
+TO DO
+- Personal Cabinet (Firebase used)
+- className deduplication: can be possibly fixed via eject or post-css
 
 
 # Getting Started with Create React App

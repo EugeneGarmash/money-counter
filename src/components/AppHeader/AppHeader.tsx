@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import CloseToggleButton from '../Button/CloseToggleButton/CloseToggleButton';
-
-import './AppHeader.scss';
 import MuteButton from '../Button/MuteButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { MENU_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
@@ -62,6 +60,8 @@ const AppHeader = () => {
         <MuteButton />
       </div>
 
+      {/** @info https://www.google.com/search?q=styled+jsx+Received+%60true%60+for+a+non-boolean+attribute+%60jsx%60&ei=Pqy_YOrFArD5qwG6-b3ADg&oq=styled+jsx+Received+%60true%60+for+a+non-boolean+attribute+%60jsx%60&gs_lcp=Cgdnd3Mtd2l6EAMyBggAEBYQHjoHCAAQRxCwAzoHCAAQsAMQQzoCCAA6BAgAEB5QlQNYhDJgmzVoAXACeACAAagBiAHrBJIBAzEuNJgBAKABAaABAqoBB2d3cy13aXrIAQrAAQE&sclient=gws-wiz&ved=0ahUKEwjq3NaPy4jxAhWw_CoKHbp8D-gQ4dUDCBE&uact=5 */}
+      {/** @info https://stackoverflow.com/questions/57261540/warning-received-true-for-a-non-boolean-attribute-jsx-zeit-styled-jsx */}
       <style jsx>{`
         .AppHeader {
           display: flex;

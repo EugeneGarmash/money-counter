@@ -62,7 +62,7 @@ export const toggleCounterState = () => (dispatch: any, _: any) => {
 
 export const initializeACounter = (token: any) => (dispatch: any, _: any) => {
   dispatch(toggleAppState());
-  dispatch(setCounterSalaryStep(null));
+  dispatch(setCounterSalaryStep(initialState.multiplier));
   dispatch(toggleCounterState());
   dispatch(changeEntertainmentMode(Object.entries(entertainmentMode)[0]));
 
