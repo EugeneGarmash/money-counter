@@ -3,8 +3,6 @@ import propTypes from 'prop-types';
 import Radium from 'radium';
 import { connect } from 'react-redux';
 import { setSalaryValue } from '../../redux/salaryReducer/salaryActionCreators';
-import { setCounterSalaryStep } from '../../redux/counterReducer/counterReducer';
-import { toggleAppState } from '../../redux/appReducer/appReducer';
 import { initializeACounter } from '../../redux/counterReducer/counterReducer';
 import './SalaryStep.scss';
 
@@ -75,8 +73,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   setSalaryValue: value => dispatch(setSalaryValue(value)),
-  toggleAppState: () => dispatch(toggleAppState()),
-  setCounterSalaryStep: () => dispatch(setCounterSalaryStep()),
   initializeACounter: (token) => dispatch(initializeACounter(token)),
 })
 
@@ -99,8 +95,6 @@ export default connect(
 //     salaryValue: state.salary.salaryValue,
 //   }), dispatch => ({
 //     setSalaryValue: value => dispatch(setSalaryValue(value)),
-//     toggleAppState: () => dispatch(toggleAppState()),
-//     setCounterSalaryStep: () => dispatch(setCounterSalaryStep()),
 //     initializeACounter: (token) => dispatch(initializeACounter(token)),
 //   })
 // )(Radium(SalaryStep));

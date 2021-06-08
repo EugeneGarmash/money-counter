@@ -30,10 +30,6 @@ const MenuModal = () => {
     dispatch(closeModal(MENU_MODAL))
   }
 
-  const handleOpenModal = () => {
-    dispatch(openModal(AUTH_MODAL));
-  }
-
   const handleMenuItemClick = () => {
     dispatch(closeModal(MENU_MODAL));
   }
@@ -69,13 +65,6 @@ const MenuModal = () => {
                 </NavLink>
               </li>
           ))}
-          {/* <li>
-            <Button
-              onClick={handleOpenModal}
-            >
-              Auth
-            </Button>
-          </li> */}
         </ul>
 
         {/* <p></p> */}

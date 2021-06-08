@@ -27,6 +27,24 @@ body,
   @include fl-jc(center);
 }
 
+@include phone_tablet {
+  .App {
+    padding: 15px 10px;
+  }
+}
+
+@include desktop {
+  .App {
+    min-height: 800px;
+  }
+}
+
+@include tablet {
+  .App {
+    min-height: 700px;
+  }
+}
+
 .container {
   width: 100%;
 
@@ -34,11 +52,5 @@ body,
 
   @include tablet_desktop {
     max-width: 600px;
-  }
-}
-
-@include phone_tablet {
-  .App {
-    padding: 15px 10px;
   }
 }

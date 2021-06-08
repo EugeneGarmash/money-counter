@@ -15,10 +15,12 @@ const MuteButton = () => {
   return counterIsActive
     ? (
         <div className={classes.MuteButtonContainer}>
-          <Button onClick={() => {
-            dispatch(handleVolume(audioInstance?.volume === 0 ? 1 : 0));
-            setMuted(!muted);
-          }}>
+          <Button
+            onClick={() => {
+              dispatch(handleVolume(audioInstance?.volume === 0 ? 1 : 0));
+              setMuted(!muted);
+            }}
+          >
             <div
               className={classNames(
                 [classes.MuteButton], {
