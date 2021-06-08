@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { handleVolume } from '../../redux/audioReducer/audioReducer';
 import Button from '../Button/Button';
@@ -10,12 +10,15 @@ const MuteButton = () => {
   const dispatch = useDispatch();
   const audioInstance = useSelector(state => state.audio.audioInstance);
   const counterIsActive = useSelector(state => state.counter.counterIsActive);
-  const muted = audioInstance?.volume === 0;
+  const [muted, setMuted] = useState(false);
 
   return counterIsActive
     ? (
         <div className={classes.MuteButtonContainer}>
-          <Button onClick={() => dispatch(handleVolume(muted ? 1 : 0))}>
+          <Button onClick={() => {
+            dispatch(handleVolume(audioInstance?.volume === 0 ? 1 : 0));
+            setMuted(!muted);
+          }}>
             <div
               className={classNames(
                 [classes.MuteButton], {

@@ -2,7 +2,7 @@ import './Waves.scss';
 
 const Waves = ({ paused }) => {
   return (
-    <div class="header">
+    <div className="header">
       <svg
         className='waves'
         xmlns="http://www.w3.org/2000/svg"

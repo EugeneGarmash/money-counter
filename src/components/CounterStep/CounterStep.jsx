@@ -12,10 +12,12 @@ import Button from '../Button/Button';
 const CounterStep = () => {
   const dispatch = useDispatch();
 
+  const appEntertainmentMode = useSelector(s => s.app.entertainmentMode);
   const counterTimeStep = useSelector(state => state.counter.counterTimeStep);
   const counterSalaryStep = useSelector(state => state.counter.counterSalaryStep);
-  const appEntertainmentMode = useSelector(s => s.app.entertainmentMode);
-  const counterState = useSelector(state => state.counter.counterValue);
+  const counterValue = useSelector(state => state.counter.counterValue);
+  const counterSecondsPassed = useSelector(state => state.counter.secondsPassed);
+
 
   const [animationIsOn, setAnimationIsOn] = useState(true);
 
@@ -27,10 +29,10 @@ const CounterStep = () => {
       <div className={classes.mainInfoContainer}>
         <p className={classes.CounterStep__noPaddingItem}>You've got</p>
         <p className={`${classes.CounterStep} ${classes.CounterStep__noPaddingItem}`}>
-          {counterState.counterValue.toFixed(2)} items
+          {counterValue.toFixed(2)} items
         </p>
         <p className={classes.CounterStep__noPaddingItem}>
-          for the last {getCorrectTimeName(counterState.secondsPassed)}
+          for the last {getCorrectTimeName(counterSecondsPassed)}
         </p>
         <p className={classes.CounterStep__salaryPerSecond}>
           You get ~{counterSalaryStep.toFixed(2)} items per {counterTimeStep / 1000} second(s)

@@ -30,7 +30,7 @@ const StyledH1 = styled.h1`
     font-size: calc(10px + 5vmin);
   }
 `
-/** @todo styled components */
+/** @info styled components */
 
 
 const AppHeader = () => {

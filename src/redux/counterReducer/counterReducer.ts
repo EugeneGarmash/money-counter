@@ -9,18 +9,18 @@ import {
 // import testaxios from '../../utils/testaxios.js';
 // import { pauseAudio, playAudio } from '../audioReducer/audioReducer';
 
-const SET_COUNTER_SALARY_STEP = 'SET_COUNTER_SALARY_STEP';
-const TOGGLE_COUNTER_STATE = 'TOGGLE_COUNTER_STATE';
-
-
-// types start
-
 interface CounterReducerInitialState {
   counterTimeStep: number,
   counterTimeStepInSeconds: number,
   counterSalaryStep: number,
   counterIsActive: boolean,
+  secondsPassed: number,
+  counterValue: number,
 }
+
+const SET_COUNTER_SALARY_STEP = 'SET_COUNTER_SALARY_STEP';
+const TOGGLE_COUNTER_STATE = 'TOGGLE_COUNTER_STATE';
+const SET_COUNTER_VALUE = 'SET_COUNTER_VALUE';
 
 // type GeneralActionObjectType = { // object
 //   type: string,
@@ -34,7 +34,7 @@ interface CounterReducerInitialState {
 // // type GeneralActionThunkType = Dispatch;
 
 // // dispatch: принимает что-то или функцию, отдаёт объект или ничего // dispatch(//...)
-// // 
+// //
 
 // type ThunkCreatorResultType = (dispatch: ThunkType, getState: () => any) => any;
 // // type ThunkCreator = () => ThunkCreatorResultType;
@@ -49,6 +49,8 @@ const initialState: CounterReducerInitialState = {
   counterTimeStepInSeconds,
   counterSalaryStep: 0,
   counterIsActive: false,
+  secondsPassed: 0,
+  counterValue: 0,
 }
 
 // is thunk necessary here? If not, it should be removed
@@ -89,10 +91,17 @@ export const setCounterSalaryStep = (multiplier: any) => (dispatch: any, getStat
     (multiplier || 1)
   ;
 
-  return dispatch({ // is return necessary here? If not, it should be removed
+  return dispatch({
     type: SET_COUNTER_SALARY_STEP,
     payload,
   });
+}
+
+export const setCounterValue = (payload: any) => {
+  return {
+    type: SET_COUNTER_VALUE,
+    payload: payload,
+  }
 }
 
 const counterReducer = (state = initialState, action: any) => {
@@ -109,6 +118,13 @@ const counterReducer = (state = initialState, action: any) => {
       return {
         ...state,
         counterIsActive: !counterIsActive,
+      }
+
+    case SET_COUNTER_VALUE:
+      return {
+        ...state,
+        secondsPassed: action.payload.secondsPassed,
+        counterValue: action.payload.counterValue,
       }
 
     default:

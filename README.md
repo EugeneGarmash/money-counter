@@ -1,10 +1,9 @@
-- redux переименовать поля
-- AdditionalSalaryInfo
 - Скидывается значение малтиплаера
-- muteButton
-- check everything
-- todo
+- check functionality in general
+- forest animation
 - Audio
+- personal cabinet - TBD
+- axios
 
 1) share with friends buttons
   const shareViaWhatsApp = () => {

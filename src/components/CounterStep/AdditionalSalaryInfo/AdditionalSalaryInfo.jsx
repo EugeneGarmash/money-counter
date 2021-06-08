@@ -1,27 +1,19 @@
 import classes from './AdditionalSalaryInfo.module.scss';
 import { additionalies } from '../../../utils/constants';
+import formatNumberWithComas from '../../../utils/formatNumberWithComas';
 
 const AdditionalSalaryInfo = ({ counterSalaryStep }) => {
   return (
     <ul className={classes.AdditionalSalaryInfo}>
       { additionalies.map((additionaly, index) => {
-
-          const withDecimal = (index === 0 || index === 1);
-          const salaryToFixed = (counterSalaryStep * additionaly.seconds).toFixed(withDecimal);
-          const salaryFormatted = salaryToFixed.length > 3 && !withDecimal
-            ? salaryToFixed.length <= 6
-              ? `${salaryToFixed.slice(0, -3)} ${salaryToFixed.slice(-3)}`
-              : salaryToFixed.length >= 8
-                ? 'a whole shitload of'
-                : `${salaryToFixed.slice(0, 1)} ${salaryToFixed.slice(1, -3)} ${salaryToFixed.slice(-3)}`
-            : salaryToFixed;
+          const salaryToFixed = (counterSalaryStep * additionaly.seconds).toFixed(2);
 
           return (
             <li
               key={additionaly.time}
               className={classes.AdditionalSalaryInfo__additionaly}
             >
-              You make ~{salaryFormatted} items {additionaly.time}
+              You make ~ {formatNumberWithComas(salaryToFixed)} items {additionaly.time}
             </li>
           );
         })
