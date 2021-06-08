@@ -1,27 +1,27 @@
-import { useState, Fragment } from 'react'
+import { Fragment } from 'react'
 import classes from './CounterStep.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import getCorrectTimeName from '../../utils/getCorrectTimeName';
 import AdditionalInfo from './AdditionalSalaryInfo';
-import Multipliers from './Multipliers/Multipliers';
+import Multipliers from '../Multipliers/Multipliers';
 import Animation from '../Animation/Animation';
 import { entertainmentMode } from '../../utils/constants';
 import { changeEntertainmentMode } from '../../redux/appReducer/appReducer';
 import Button from '../Button/Button';
+import { switchAnimation } from '../../redux/appReducer/appReducer';
 
 const CounterStep = () => {
   const dispatch = useDispatch();
 
   const appEntertainmentMode = useSelector(s => s.app.entertainmentMode);
+  const animationIsOn = useSelector(state => state.app.animationIsOn);
+
   const counterTimeStep = useSelector(state => state.counter.counterTimeStep);
   const counterSalaryStep = useSelector(state => state.counter.counterSalaryStep);
   const counterValue = useSelector(state => state.counter.counterValue);
   const counterSecondsPassed = useSelector(state => state.counter.secondsPassed);
 
-
-  const [animationIsOn, setAnimationIsOn] = useState(true);
-
-  const handleChangeView = () => setAnimationIsOn(!animationIsOn);
+  const handleChangeView = () => dispatch(switchAnimation(!animationIsOn));
 
   return (
     <Fragment>

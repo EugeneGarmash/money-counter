@@ -3,7 +3,7 @@ import SalaryStep from '../SalaryStep/SalaryStep';
 import CounterStep from '../CounterStep';
 import './AppStepManager.scss';
 
-const AppStepManager = props => {
+const AppStepManager = () => {
   const appIsInSalaryStep = useSelector(state => state.app.appIsInSalaryStep);
 
   return (

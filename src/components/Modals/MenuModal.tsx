@@ -11,7 +11,7 @@ import { routes } from '../../utils/constants';
 import { NavLink } from "react-router-dom";
 import cn from 'classnames';
 import Button from '../Button/Button';
-import extraClasses from '../CounterStep/Multipliers/Multipliers.module.scss';
+import extraClasses from '../Multipliers/Multipliers.module.scss';
 import buttonClasses from '../Button/Button.module.scss';
 import { RootState } from '../../redux/store';
 

@@ -1,10 +1,3 @@
-- Скидывается значение малтиплаера
-- check functionality in general
-- forest animation
-- Audio
-- personal cabinet - TBD
-- axios
-
 1) share with friends buttons
   const shareViaWhatsApp = () => {
     window.location.href = `whatsapp://send?text=${shareText}`;
@@ -31,7 +24,10 @@ using linter with custom settings
 5) Fix readme
 6) Remove all ts ANY
 7) convert to TS
-
+8) setCounterSalaryStep
+9) routing guard
+10) personal cabinet - TBD
+11) - axios
 
 
 5)

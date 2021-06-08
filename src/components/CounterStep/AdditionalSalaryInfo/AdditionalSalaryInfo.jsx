@@ -5,7 +5,7 @@ import formatNumberWithComas from '../../../utils/formatNumberWithComas';
 const AdditionalSalaryInfo = ({ counterSalaryStep }) => {
   return (
     <ul className={classes.AdditionalSalaryInfo}>
-      { additionalies.map((additionaly, index) => {
+      { additionalies.map((additionaly) => {
           const salaryToFixed = (counterSalaryStep * additionaly.seconds).toFixed(2);
 
           return (

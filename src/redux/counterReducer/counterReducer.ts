@@ -16,6 +16,7 @@ interface CounterReducerInitialState {
   counterIsActive: boolean,
   secondsPassed: number,
   counterValue: number,
+  multiplier: number,
 }
 
 const SET_COUNTER_SALARY_STEP = 'SET_COUNTER_SALARY_STEP';
@@ -51,6 +52,7 @@ const initialState: CounterReducerInitialState = {
   counterIsActive: false,
   secondsPassed: 0,
   counterValue: 0,
+  multiplier: 1,
 }
 
 // is thunk necessary here? If not, it should be removed
@@ -78,22 +80,26 @@ export const initializeACounter = (token: any) => (dispatch: any, _: any) => {
 }
 
 export const setCounterSalaryStep = (multiplier: any) => (dispatch: any, getState: any) => {
+  console.log('🚀 ~ file: counterReducer.ts ~ line 83 ~ setCounterSalaryStep ~ multiplier', multiplier);
   const state = getState(); /** @info can be done in a reducer as well*/
 
   const salary = state.salary.salaryValue;
   const intervalsInAnHour = 3600 / counterTimeStepInSeconds;
+  const multiplierToBe = multiplier || initialState.multiplier;
 
-  const payload = salary *
+  const salaryStep = salary *
     time.monthsInAYear /
     time.workDaysInAYear /
     time.workHoursInADay /
-    intervalsInAnHour *
-    (multiplier || 1)
+    intervalsInAnHour * multiplierToBe
   ;
 
   return dispatch({
     type: SET_COUNTER_SALARY_STEP,
-    payload,
+    payload: {
+      salaryStep,
+      multiplier: multiplierToBe,
+    }
   });
 }
 
@@ -110,7 +116,8 @@ const counterReducer = (state = initialState, action: any) => {
     case SET_COUNTER_SALARY_STEP:
       return {
         ...state,
-        counterSalaryStep: action.payload,
+        counterSalaryStep: action.payload.salaryStep,
+        multiplier: action.payload.multiplier,
       }
 
     case TOGGLE_COUNTER_STATE:
