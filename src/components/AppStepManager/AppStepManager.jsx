@@ -11,7 +11,7 @@ const AppStepManager = props => {
     {
       appIsInSalaryStep
         ? <SalaryStep />
-        : <CounterStep counterState={props.counterState} />
+        : <CounterStep />
     }
   </main>
   );

@@ -15,10 +15,7 @@ const AppFooter: React.FC<PropsType> = props => {
   return (
     <div className='AppFooter'>
       <div className='AppFooter__primaryButtonContainer'>
-        <AppMainButton
-          setCounterPassed={props.setCounterPassed}
-          counterState={props.counterState}
-        />
+        <AppMainButton />
       </div>
     </div>
   )

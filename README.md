@@ -1,3 +1,11 @@
+- redux переименовать поля
+- AdditionalSalaryInfo
+- Скидывается значение малтиплаера
+- muteButton
+- check everything
+- todo
+- Audio
+
 1) share with friends buttons
   const shareViaWhatsApp = () => {
     window.location.href = `whatsapp://send?text=${shareText}`;
@@ -22,6 +30,10 @@ https://www.google.com/search?q=css+modules+name+duplication&oq=css+modules+name
 to avoid AppMainButton__AppMainButton you should play with webpack config file*/
 using linter with custom settings
 5) Fix readme
+6) Remove all ts ANY
+7) convert to TS
+
+
 
 5)
   Redux toolkit - slices

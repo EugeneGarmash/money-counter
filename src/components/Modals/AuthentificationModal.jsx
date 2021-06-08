@@ -1,14 +1,10 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Authentification from '../Authentification/Authentification';
-import {
-  openModal,
-  closeModal,
-  AUTH_MODAL
-} from '../../redux/modalReducer/modalReducer';
+import { closeModal, AUTH_MODAL } from '../../redux/modalReducer/modalReducer';
 import Modal from '../Modal';
 
-const AuthentiificationModal = () => {
+const AuthentificationModal = () => {
 
 
   const dispatch = useDispatch();
@@ -28,4 +24,4 @@ const AuthentiificationModal = () => {
   )
 }
 
-export default AuthentiificationModal;
+export default AuthentificationModal;
