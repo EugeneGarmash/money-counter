@@ -6,6 +6,7 @@ $darkBlue: #163b38;
 .triangles {
   position: relative;
   width: 100%;
+  max-width: 315px;
   height: 315px;
   overflow: hidden;
 }
@@ -17,7 +18,7 @@ $darkBlue: #163b38;
   background-image: url(https://i.imgur.com/Y5wWEj9.jpg);
   background-size: cover;
   background-position: 55% 50%;
-  // filter: grayscale(100%); // @todo autumn
+  // filter: grayscale(100%); // @todo autumn mode
   position: absolute;
   bottom: 0px;
   left: 156px;

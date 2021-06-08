@@ -1,8 +1,10 @@
 @import '../../services/mixins.scss';
+@import '../../services/colors.scss';
 
 .SalaryStep {
-  @include fl-col;
   margin: 0;
+
+  @include fl-col;
 }
 .SalaryStep__topText {
   margin-bottom: 20px;
@@ -15,14 +17,14 @@
   margin-bottom: 20px;
 }
 
-/* @info --> Radium used instead */
+/* @info Radium used instead */
 
 // .App__salaryInput {
 //   padding: 10px;
 //   border: none;
 //   border-radius: 3px;
 //   max-width: 100%;
-//   color: #282c34;
+//   color: $shark;
 //   font-size: 50px;
 //   margin-bottom: 20px;
 //   text-align: center;

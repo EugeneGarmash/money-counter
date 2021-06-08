@@ -3,9 +3,9 @@ import Fire from './Fire/Fire';
 import Forest from './Forest/Forest';
 import Waves from './Waves/Waves';
 import Rain from './Rain/Rain';
-
 import classes from './Animation.module.scss';
-/** @todo */
+
+/** @todo new year mode */
 // import NewYear from './NewYear/NewYear';
 // case 'newYear':
 //   return (

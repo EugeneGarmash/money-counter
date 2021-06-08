@@ -22,6 +22,14 @@ https://www.google.com/search?q=css+modules+name+duplication&oq=css+modules+name
 to avoid AppMainButton__AppMainButton you should play with webpack config file*/
 using linter with custom settings
 5) Fix readme
+6) Menu modal
+6) Remove all ts ANY
+7) convert to TS
+8) setCounterSalaryStep
+9) routing guard
+10) personal cabinet - TBD
+11) - axios
+
 
 5)
   Redux toolkit - slices

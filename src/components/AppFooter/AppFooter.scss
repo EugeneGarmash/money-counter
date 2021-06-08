@@ -1,9 +1,10 @@
 @import '../../services/mixins.scss';
 
 .AppFooter__primaryButtonContainer {
-  @include fl-col-jc(flex-end);
   min-height: 120px;
   margin-bottom: 15px;
+
+  @include fl-col-jc(flex-end);
 }
 
 .AppFooter__secondaryButtonContainer {
@@ -12,6 +13,7 @@
 
 .Footer__secondaryButton {
   @include fl-ja(center, center);
+
   background: transparent;
   color: inherit;
   padding: 10px;
@@ -29,9 +31,7 @@
 
 @include phone_tablet {
   .AppFooter__primaryButtonContainer {
-    // flex-direction: row;
     min-height: 0;
     margin-bottom: 0;
   }
-
 }

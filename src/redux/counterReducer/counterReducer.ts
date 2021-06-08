@@ -9,18 +9,19 @@ import {
 // import testaxios from '../../utils/testaxios.js';
 // import { pauseAudio, playAudio } from '../audioReducer/audioReducer';
 
-const SET_COUNTER_SALARY_STEP = 'SET_COUNTER_SALARY_STEP';
-const TOGGLE_COUNTER_STATE = 'TOGGLE_COUNTER_STATE';
-
-
-// types start
-
 interface CounterReducerInitialState {
   counterTimeStep: number,
   counterTimeStepInSeconds: number,
   counterSalaryStep: number,
   counterIsActive: boolean,
+  secondsPassed: number,
+  counterValue: number,
+  multiplier: number,
 }
+
+const SET_COUNTER_SALARY_STEP = 'SET_COUNTER_SALARY_STEP';
+const TOGGLE_COUNTER_STATE = 'TOGGLE_COUNTER_STATE';
+const SET_COUNTER_VALUE = 'SET_COUNTER_VALUE';
 
 // type GeneralActionObjectType = { // object
 //   type: string,
@@ -34,7 +35,7 @@ interface CounterReducerInitialState {
 // // type GeneralActionThunkType = Dispatch;
 
 // // dispatch: принимает что-то или функцию, отдаёт объект или ничего // dispatch(//...)
-// // 
+// //
 
 // type ThunkCreatorResultType = (dispatch: ThunkType, getState: () => any) => any;
 // // type ThunkCreator = () => ThunkCreatorResultType;
@@ -49,6 +50,9 @@ const initialState: CounterReducerInitialState = {
   counterTimeStepInSeconds,
   counterSalaryStep: 0,
   counterIsActive: false,
+  secondsPassed: 0,
+  counterValue: 0,
+  multiplier: 1,
 }
 
 // is thunk necessary here? If not, it should be removed
@@ -76,23 +80,34 @@ export const initializeACounter = (token: any) => (dispatch: any, _: any) => {
 }
 
 export const setCounterSalaryStep = (multiplier: any) => (dispatch: any, getState: any) => {
+  console.log('🚀 ~ file: counterReducer.ts ~ line 83 ~ setCounterSalaryStep ~ multiplier', multiplier);
   const state = getState(); /** @info can be done in a reducer as well*/
 
   const salary = state.salary.salaryValue;
   const intervalsInAnHour = 3600 / counterTimeStepInSeconds;
+  const multiplierToBe = multiplier || initialState.multiplier;
 
-  const payload = salary *
+  const salaryStep = salary *
     time.monthsInAYear /
     time.workDaysInAYear /
     time.workHoursInADay /
-    intervalsInAnHour *
-    (multiplier || 1)
+    intervalsInAnHour * multiplierToBe
   ;
 
-  return dispatch({ // is return necessary here? If not, it should be removed
+  return dispatch({
     type: SET_COUNTER_SALARY_STEP,
-    payload,
+    payload: {
+      salaryStep,
+      multiplier: multiplierToBe,
+    }
   });
+}
+
+export const setCounterValue = (payload: any) => {
+  return {
+    type: SET_COUNTER_VALUE,
+    payload: payload,
+  }
 }
 
 const counterReducer = (state = initialState, action: any) => {
@@ -101,7 +116,8 @@ const counterReducer = (state = initialState, action: any) => {
     case SET_COUNTER_SALARY_STEP:
       return {
         ...state,
-        counterSalaryStep: action.payload,
+        counterSalaryStep: action.payload.salaryStep,
+        multiplier: action.payload.multiplier,
       }
 
     case TOGGLE_COUNTER_STATE:
@@ -109,6 +125,13 @@ const counterReducer = (state = initialState, action: any) => {
       return {
         ...state,
         counterIsActive: !counterIsActive,
+      }
+
+    case SET_COUNTER_VALUE:
+      return {
+        ...state,
+        secondsPassed: action.payload.secondsPassed,
+        counterValue: action.payload.counterValue,
       }
 
     default:

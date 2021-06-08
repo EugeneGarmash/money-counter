@@ -1,15 +1,18 @@
 @import '../../services/mixins.scss';
+@import '../../services/colors.scss';
+
 
 .AppStepManager {
   margin-bottom: 20px;
   flex-grow: 1;
+
   @include fl-col();
 }
 
 
 .link {
   text-decoration: none;
-  color: #e6e0e0;
+  color: $ebb;
 }
 
 .linkContainer {

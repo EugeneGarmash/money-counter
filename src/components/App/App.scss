@@ -1,5 +1,5 @@
-// @import 'customNormalizeResetbyEV';
-// @import 'variables.scss';
+@import '../../services/customNormalizeResetByEH.scss';
+@import '../../services/colors.scss';
 @import '../../services/mixins.scss';
 
 *,
@@ -14,21 +14,22 @@ body,
 .App,
 #root > [data-radium] {
   height: 100%;
-  // overflow: hidden;
   min-width: 375px;
   min-height: 667px;
 }
 
 .App {
   text-align: center;
-  background-color: #282c34;
+  background-color: $shark;
   padding: 40px 10px 10px;
+  color: $ebb;
+
   @include fl-jc(center);
-  color: #e6e0e0;
 }
 
 .container {
   width: 100%;
+
   @include fl-col;
 
   @include tablet_desktop {

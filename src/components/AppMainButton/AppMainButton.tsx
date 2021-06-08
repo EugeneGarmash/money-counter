@@ -1,6 +1,4 @@
-import React from 'react';
-import { connect, ConnectedProps } from 'react-redux';
-
+import { connect, ConnectedProps, useDispatch, useSelector } from 'react-redux';
 import { toggleAppState } from '../../redux/appReducer/appReducer';
 import {
   setCounterSalaryStep,
@@ -12,6 +10,7 @@ import classes from './AppMainButton.module.scss';
 import { pauseAudio, playAudio } from '../../redux/audioReducer/audioReducer';
 import Button from '../Button/Button';
 import { RootState } from '../../redux/store';
+import { setCounterValue } from '../../redux/counterReducer/counterReducer';
 
 type PropsType = {
   setCounterPassed: (data: object) => any,
@@ -33,7 +32,7 @@ type PropsType = {
 
 const connector = connect(
   (state: RootState) => ({
-    appIsInSalaryStep: state.app.appIsInSalaryStep, // or (state) => state.app.appState
+    appIsInSalaryStep: state.app.appIsInSalaryStep, /** @info or (state) => state.app.appState*/
     counterIsActive: state.counter.counterIsActive,
     salaryValue: state.salary.salaryValue,
   }),
@@ -55,17 +54,17 @@ type Props = PropsType & PropsFromRedux
 const AppMainButton = (props: any) => {
 
   const {
-    counterState,
     appIsInSalaryStep,
     counterIsActive,
     toggleAppState,
     salaryValue,
     toggleCounterState,
     initializeACounter,
-    onPauseAudio, /** it happens when I forget to destructurize a prop - then no dispatch is fired */
+    onPauseAudio,
     onPlayAudio,
   } = props;
 
+  const dispatch = useDispatch();
 
   const handleCounterStepButtonClick = async (e: any) => {
     if (salaryValue) {
@@ -73,9 +72,7 @@ const AppMainButton = (props: any) => {
       // window.grecaptcha.ready(function() {
       //   window.grecaptcha.execute('6LeT0OEZAAAAACWNvEOTwKHTF4L6vawvPVYQI8QS', {action: 'submit'})
       //     .then(function(token) {
-
             initializeACounter();
-
           }
     //     );
     //   });
@@ -92,16 +89,10 @@ const AppMainButton = (props: any) => {
 
   const handleStop = () => {
     toggleAppState();
-    props.setCounterPassed({
+    dispatch(setCounterValue({
       secondsPassed: 0,
       counterValue: 0,
-      paused: true,
-    })
-    props.onSaveUserSalary({
-      salaryValue,
-      secondsPassed: counterState.secondsPassed,
-      counterValue: counterState.counterValue,
-    })
+    }))
   }
 
   return (
@@ -137,18 +128,3 @@ const AppMainButton = (props: any) => {
 };
 
 export default connector(AppMainButton);
-
-// export default connect(
-//   (state: RootState) => ({
-//     appIsInSalaryStep: state.app.appIsInSalaryStep, // or (state) => state.app.appState
-//     counterIsActive: state.counter.counterIsActive,
-//     salaryValue: state.salary.salaryValue,
-//   }), {
-//     toggleAppState,
-//     toggleCounterState,
-//     setCounterSalaryStep,
-//     initializeACounter,
-//     onPauseAudio: pauseAudio,
-//     onPlayAudio: playAudio,
-//     onSaveUserSalary: saveUserSalary,
-// })(AppMainButton);

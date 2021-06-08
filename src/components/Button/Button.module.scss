@@ -1,4 +1,6 @@
 @import '../../services/mixins.scss';
+@import '../../services/colors.scss';
+
 
 .Button {
   @include fl-ja(center, center);
@@ -7,7 +9,7 @@
   font-size: 1.5em;
   font-family: inherit;
   padding: 0;
-  border: 2px solid #e6e0e0;
+  border: 2px solid $ebb;
   border-radius: 3px;
   background: transparent;
   color: inherit;
@@ -24,7 +26,7 @@
       background-color: rgba(230, 224, 224, 0.5);
       border: 2px solid rgba(230, 224, 224, 0.5);
       outline: none;
-      color: #282c34;
+      color: $shark;
     }
   }
 
@@ -33,7 +35,7 @@
       background-color: rgba(230, 224, 224, 0.5);
       border: 2px solid rgba(230, 224, 224, 0.5);
       outline: none;
-      color: #282c34;
+      color: $shark;
     }
   }
 }

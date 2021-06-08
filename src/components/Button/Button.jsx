@@ -5,7 +5,8 @@ import classes from './Button.module.scss';
 const Button = props => {
   return (
     <button
-      className={classNames(classes.Button, {
+      className={classNames(
+        classes.Button, {
         [classes.Button__fullHeight]: props.fullHeight,
       })}
       onClick={props.onClick}

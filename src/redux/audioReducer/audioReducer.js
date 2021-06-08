@@ -11,6 +11,14 @@ const initialState = {
   audioInstance: null,
 }
 
+/**
+ * @info
+ * Although there're no specific audio properties in redux
+ * and audioInstance is the same on every action fired,
+ * manipulations are done here to make it transparent to use.
+ * The initial audioInstance is altered under the hood.
+ * */
+
 const getAudioInstance = getState => {
   return getState().audio.audioInstance;
 }
@@ -28,7 +36,7 @@ export const playAudio = () => (dispatch, getState) => {
 
   return dispatch({
     type: PLAY_AUDIO,
-    payload: audioInstance, // same object ? better be so
+    payload: audioInstance,
   });
 }
 
@@ -36,18 +44,18 @@ export const pauseAudio = () => (dispatch, getState) => {
   const audioInstance = getAudioInstance(getState);
   audioInstance.pause();
 
-  return dispatch({ // may alter the initial audioInstance
+  return dispatch({
     type: PAUSE_AUDIO,
-    payload: audioInstance, // same object ? better be so
+    payload: audioInstance,
   });
 };
 
 export const stopAudio = () => (dispatch, getState) => {
   const audioInstance = getAudioInstance(getState);
   audioInstance.pause();
-  return dispatch({ // may alter the initial audioInstance
+  return dispatch({
     type: STOP_AUDIO,
-    payload: audioInstance, // same object ? better be so
+    payload: audioInstance,
   });
 }
 
@@ -56,7 +64,7 @@ export const changeSource = src => (dispatch, getState) => {
   audioInstance.src = src;
   return dispatch({
     type: CHANGE_SOURCE,
-    payload: audioInstance, // same object ? better be so
+    payload: audioInstance,
   });
 }
 
@@ -68,7 +76,7 @@ export const handleVolume = volumeLevel => (dispatch, getState) => {
   audioInstance.volume = volumeLevel;
   return dispatch({
     type: HANDLE_VOLUME,
-    payload: audioInstance, // same object ? better be so
+    payload: audioInstance,
   });
 };
 

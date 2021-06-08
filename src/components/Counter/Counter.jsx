@@ -5,41 +5,36 @@ import {
 } from 'react'
 import {
   useSelector,
+  useDispatch,
 } from 'react-redux';
+import { setCounterValue } from '../../redux/counterReducer/counterReducer';
+import { counterTimeStepInSeconds } from '../../utils/constants';
 
-const Counter = props => {
-  const {
-    counterIsActive,
-    setCounterPassed,
-  } = props;
+const Counter = () => {
   const timerId = useRef(null);
-  const counterTimeStep = useSelector(state => state.counter.counterTimeStep);
-  const counterSalaryStep = useSelector(state => state.counter.counterSalaryStep);
+  const dispatch = useDispatch();
+  const counterIsActive = useSelector(state => state.counter.counterIsActive);
+  const counter = useSelector(state => state.counter);
 
   const startInterval = useCallback(
     () => {
       timerId.current = setInterval(
         () => {
-          setCounterPassed(state =>
-            !counterIsActive
-              ? state
-              : {
-                  ...state,
-                counterValue: state.counterValue + counterSalaryStep,
-                secondsPassed: state.secondsPassed + counterTimeStep / 1000,
-              }
-          );
+          dispatch(setCounterValue({
+            counterValue: counter.counterValue + counter.counterSalaryStep,
+            secondsPassed: counter.secondsPassed + counterTimeStepInSeconds,
+          }));
         },
-        counterTimeStep
+        counter.counterTimeStep
       )
     },
-    [counterIsActive, counterSalaryStep, counterTimeStep, setCounterPassed]
+    [ counter, dispatch ]
   );
 
   useEffect(() => {
-    startInterval();
-    return () => clearTimeout(timerId.current);
-  }, [startInterval]);
+    counterIsActive && startInterval();
+    return () => clearTimeout(timerId?.current);
+  }, [startInterval, counterIsActive]);
 
   return null;
 }
