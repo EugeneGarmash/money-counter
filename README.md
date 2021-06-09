@@ -1,5 +1,5 @@
 # money-counter
-Count your money while working \
+Count your money while working
 You can check the project out on [THE LINK](https://eugenegarmash.github.io/money-counter/) \
 
 You see a money counter written on the JS programming

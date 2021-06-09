@@ -88,7 +88,6 @@ const About = () => {
           <li>5. Styling: CSS Modules, Styled C, Radium, SCSS (vars, mixins, nesting)</li>
           <li>6. Audio API</li>
         </ul>
-{/**  */}
       </div>
 
     </div>
