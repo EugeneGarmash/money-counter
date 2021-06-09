@@ -16,7 +16,7 @@ const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 const App = () =>  {
 
   return (
-    <BrowserRouter basename={process.env.NODE_ENV !== 'development' ? 'moneyCounter' : ''}>
+    <BrowserRouter>
       <StyleRoot>
         <div className="App">
           <div className='container'>
