@@ -32,14 +32,12 @@ const salaryInputStyles = {
 
 const SalaryStep = props => {
 
-  const isLoggedIn = useSelector(s => s.auth.success.token);
-
   const handleSalaryInputChange = event => {
     props.setSalaryValue(event.target.value);
   }
   const handlePressEnter = (event) => {
     if (event.key === 'Enter' && props.salaryValue) {
-      props.initializeACounter(isLoggedIn);
+      props.initializeACounter();
     }
   }
 
@@ -73,7 +71,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => ({
   setSalaryValue: value => dispatch(setSalaryValue(value)),
-  initializeACounter: (token) => dispatch(initializeACounter(token)),
+  initializeACounter: () => dispatch(initializeACounter()),
 })
 
 export default connect(

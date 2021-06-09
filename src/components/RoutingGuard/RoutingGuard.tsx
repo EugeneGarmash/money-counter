@@ -1,14 +1,16 @@
-import { Prompt } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
+import handleActiveTabClose from '../../utils/handleActiveTabClose';
+import { useEffect } from 'react';
 
 const RoutingGuard = () => {
-  const opened = useSelector((state: RootState) => state.counter.counterIsActive);
+  const counterIsActive = useSelector((state: RootState) => state.counter.counterIsActive);
 
-  return (
-    null
-    // <Prompt when={opened} message={'The counter is active, are you sure you want to leave the page?'} />
-  )
+  useEffect(() => {
+    handleActiveTabClose(counterIsActive);
+  }, [counterIsActive]);
+
+  return  null
 }
 
 export default RoutingGuard;

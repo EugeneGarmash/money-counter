@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
-import Spinner from '../Spinner';
-import Audio from '../Audio/Audio';
+import Spinner from '../Spinner/Spinner';
 import Counter from '../Counter/Counter';
 import Modals from '../Modals/Modals';
 import RoutingGuard from '../RoutingGuard/RoutingGuard';
@@ -12,7 +11,6 @@ const Helpers = () => {
 
       <Spinner />
 
-      <Audio />
 
       <Modals />
 

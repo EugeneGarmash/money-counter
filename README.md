@@ -1,18 +1,10 @@
 TODO BEFORE RELEASE
 
-1) Remove comments
-2) Remove all ts ANY
-3) routing guard
-4) Fix readme
-5) - axios
-  // remove auth !!
-  // but some fake api
-  // SWR
-7) Redux toolkit - slices + Reselect
-8) use Context API
-9) remove redundant files
-10) use correct share link
-11) deploy
+1) Fix readme
+2) Redux toolkit - slices + Reselect
+3) use Context API
+4) use correct share link
+5) deploy
 
 
 # money-counter
@@ -51,6 +43,8 @@ Styling
 TO DO
 - Personal Cabinet (Firebase used)
 - className deduplication: can be possibly fixed via eject or post-css
+- NY mood
+- SWR
 
 
 # Getting Started with Create React App

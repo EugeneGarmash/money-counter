@@ -1,11 +1,10 @@
-import { connect, ConnectedProps, useDispatch, useSelector } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 import { toggleAppState } from '../../redux/appReducer/appReducer';
 import {
   setCounterSalaryStep,
   initializeACounter,
   toggleCounterState
 } from '../../redux/counterReducer/counterReducer';
-import { saveUserSalary } from '../../redux/authReducer/authActionCreators';
 import classes from './AppMainButton.module.scss';
 import { pauseAudio, playAudio } from '../../redux/audioReducer/audioReducer';
 import Button from '../Button/Button';
@@ -21,13 +20,12 @@ type PropsType = {
   appIsInSalaryStep: boolean,
   counterIsActive: boolean,
   salaryValue: number,
-  toggleAppState: () => any,
-  toggleCounterState: () => any,
-  setCounterSalaryStep: (multiplier: any) => any,
-  initializeACounter: () => any,
-  onPauseAudio: () => any,
-  onPlayAudio: () => any,
-  onSaveUserSalary: (data: object) => any,
+  toggleAppState: () => void,
+  toggleCounterState: () => void,
+  setCounterSalaryStep: (multiplier: number) => void,
+  initializeACounter: () => void,
+  onPauseAudio: () => void,
+  onPlayAudio: () => void,
 }
 
 const connector = connect(
@@ -43,13 +41,8 @@ const connector = connect(
     initializeACounter,
     onPauseAudio: pauseAudio,
     onPlayAudio: playAudio,
-    onSaveUserSalary: saveUserSalary,
   }
 );
-
-type PropsFromRedux = ConnectedProps<typeof connector>
-
-type Props = PropsType & PropsFromRedux
 
 const AppMainButton = (props: any) => {
 
@@ -66,8 +59,9 @@ const AppMainButton = (props: any) => {
 
   const dispatch = useDispatch();
 
-  const handleCounterStepButtonClick = async (e: any) => {
+  const handleCounterStepButtonClick = async (e: Event) => {
     if (salaryValue) {
+      /** @todo captcha */
       // e.preventDefault();
       // window.grecaptcha.ready(function() {
       //   window.grecaptcha.execute('6LeT0OEZAAAAACWNvEOTwKHTF4L6vawvPVYQI8QS', {action: 'submit'})

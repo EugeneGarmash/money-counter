@@ -1,25 +1,16 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  openModal,
   closeModal,
   MENU_MODAL,
-  AUTH_MODAL,
-} from '../../redux/modalReducer/modalReducer';
-import Modal from '../Modal';
-import { routes } from '../../utils/constants';
+} from '../../../redux/modalReducer/modalReducer';
+import Modal from '../../Modal/Modal';
+import { routes } from '../../../utils/constants';
 import { NavLink } from "react-router-dom";
 import cn from 'classnames';
-import Button from '../Button/Button';
-import extraClasses from '../Multipliers/Multipliers.module.scss';
-import buttonClasses from '../Button/Button.module.scss';
-import { RootState } from '../../redux/store';
-
-// USE PARAMS
-
-type PropsType = {
-  // openModal:
-}
+import extraClasses from '../../Multipliers/Multipliers.module.scss';
+import buttonClasses from '../../Button/Button.module.scss';
+import { RootState } from '../../../redux/store';
 
 const MenuModal = () => {
 

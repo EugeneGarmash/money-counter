@@ -77,44 +77,18 @@ const About = () => {
         })}
       </ul>
 
-      {/* <div>
-        <h2>money-counter</h2>
-        <p>Count your money while working</p>
-        <p>You can check the project out on [THE LINK](https://the_link)</p>
-
-        <p>You see a money counter written on the JS programming</p>
-        <p>language with demonstration purposes.</p>
-        <p>The belowmentioned technologies and techniques are used for practice:</p>
-
-        <p>JS:</p>
-        <p> - React</p>
-        <ul>
-          <li>1. React hooks</li>
-          <li>2. Context API</li>
-          <li>3. React-router</li>
-          <li>4. Class components</li>
-          <li>5. Functional components</li>
-          <li>6. Various libraries</li>
-          <li>7. Audio API</li>
+      <div className={classes.About__info}>
+        <p className={classes.About__p}>The belowmentioned technologies and techniques are used for practice:</p>
+        <ul className={classes.About__infoList}>
+          <li>1. React hooks, Redux hooks, React-redux</li>
+          <li>2. React-router</li>
+          <li>3. Class and Functional components</li>
+          <li>4. Context API</li>
+          <li>5. Styling: CSS Modules, Styled C, Radium, SCSS (vars, mixins, nesting)</li>
+          <li>6. Audio API</li>
         </ul>
-        <p> - Redux</p>
-        <ul>
-          <li>1. React-redux</li>
-          <li>2. Redux hooks</li>
-          <li>3. No switch case reducer usage</li>
-        </ul>
-        <p>Styling: </p>
-        <ul>
-          <li>1. Radium</li>
-          <li>2. CSS Modules</li>
-          <li>3. Styled components</li>
-          <li>4. SCSS (variables, mixins and nesting)</li>
-          <li>5. Inline styling</li>
-          <li>6. External font usage</li>
-          <li>7. Custom Favicon use</li>
-        </ul>
-
-      </div> */}
+{/**  */}
+      </div>
 
     </div>
   );

@@ -1,4 +1,5 @@
 import { changeTrack, launchAnAudio, pauseAudio, stopAudio, changeSource } from "../audioReducer/audioReducer";
+import { RootState } from '../store';
 
 const TOGGLE_APP_STATE = 'TOGGLE_APP_STATE';
 const TOGGLE_APP_SPINNER = 'TOGGLE_APP_SPINNER';
@@ -19,14 +20,14 @@ const initialState: AppState = {
   animationIsOn: true,
 }
 
-export const toggleAppState = () => (dispatch: any, getState: any) => {
+export const toggleAppState = () => (dispatch: any, getState: () => RootState) => {
 
   if (!getState().app.appIsInSalaryStep) {
-    dispatch(changeEntertainmentMode(''));
+    dispatch(changeEntertainmentMode(['', '']));
     dispatch(stopAudio());
   }
 
-  return dispatch({ // returning the dispatch might be redundant
+  return dispatch({
     type: TOGGLE_APP_STATE,
   });
 };
@@ -35,44 +36,32 @@ type ToggleAppSpinnerActionType = {
   type: typeof TOGGLE_APP_SPINNER,
 }
 
-type ToggleAppSpinnerActionCreator = () => ToggleAppSpinnerActionType;
-
-// interface ToggleAppSpinner  {
-//   (): ToggleAppSpinnerActionType
-// }
-
-// export const toggleAppSpinner: ToggleAppSpinnerActionCreator = () => ({
-//   type: TOGGLE_APP_SPINNER,
-// });
-
 export const toggleAppSpinner = (): ToggleAppSpinnerActionType => ({
   type: TOGGLE_APP_SPINNER,
 });
 
-export const changeEntertainmentMode = (payload: any) => (dispatch: any, getState: any) => {
-  const [name, sound] = payload;
+type ChangeEntertainmentModePayloadType = [ name: string, sound: string];
 
-  const state = getState();
-  const counterIsActive = state.counter.counterIsActive;
-  const audioInstance = state.audio.audioInstance;
+export const changeEntertainmentMode =
+  (payload: ChangeEntertainmentModePayloadType) =>
+    (dispatch: any, getState: () => RootState) => {
+      const [name, sound] = payload;
 
-  dispatch({ type: CHANGE_ENTERTAINMENT_MODE, payload: name });
+      const state = getState();
+      const counterIsActive = state.counter.counterIsActive;
+      const audioInstance = state.audio.audioInstance;
 
-  // 1
-  // if (!counterIsActive) { // leave audio muted
-  //   return;
-  // }
+      dispatch({ type: CHANGE_ENTERTAINMENT_MODE, payload: name });
 
-  // 2
-  if (!counterIsActive) {
-    dispatch(pauseAudio());
-    dispatch(changeSource(sound));
-    return;
-  }
+      if (!counterIsActive) {
+        dispatch(pauseAudio());
+        dispatch(changeSource(sound));
+        return;
+      }
 
-  audioInstance /** @info initialRender */
-    ? dispatch(changeTrack(sound))
-    : dispatch(launchAnAudio());
+      audioInstance /** @info initialRender */
+        ? dispatch(changeTrack(sound))
+        : dispatch(launchAnAudio());
 };
 
 export const switchAnimation = (animationIsOn: boolean) => {
@@ -92,12 +81,6 @@ const appReducer = (state = initialState, action: any): AppState => {
       return {
         ...state,
         appIsInSalaryStep: !appIsInSalaryStep,
-      }
-
-    case TOGGLE_APP_SPINNER:
-      return {
-        ...state,
-        spinner: !state.spinner,
       }
 
     case CHANGE_ENTERTAINMENT_MODE:

@@ -1,32 +1,18 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './components/App';
+import App from './components/App/App';
 import { Provider } from 'react-redux';
-import { createStore, compose , applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 // import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk';
 import rootReducer from './redux/store';
-import createSagaMiddleware from 'redux-saga';
-import { logoutSaga } from './redux/sagas/authSaga'; // checkAuthTimeoutSaga
 import reportWebVitals from './reportWebVitals';
 import { composeWithDevTools } from "redux-devtools-extension";
 
-
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__: boolean
-  }
-}
-
-const sagaMiddleware = createSagaMiddleware();
-
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk, sagaMiddleware))
+  composeWithDevTools(applyMiddleware(thunk))
 );
 
-sagaMiddleware.run(logoutSaga);
 
 ReactDOM.render(
   // <React.StrictMode> {/** renders everything twice */}

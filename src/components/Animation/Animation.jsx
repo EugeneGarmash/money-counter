@@ -5,13 +5,6 @@ import Waves from './Waves/Waves';
 import Rain from './Rain/Rain';
 import classes from './Animation.module.scss';
 
-/** @todo new year mode */
-// import NewYear from './NewYear/NewYear';
-// case 'newYear':
-//   return (
-//     <NewYear paused={!counterIsActive}/>
-//   )
-
 const Animation = () => {
 
   const entertainmentMode = useSelector(s => s.app.entertainmentMode);

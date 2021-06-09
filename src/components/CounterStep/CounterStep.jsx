@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import classes from './CounterStep.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import getCorrectTimeName from '../../utils/getCorrectTimeName';
-import AdditionalInfo from './AdditionalSalaryInfo';
+import AdditionalInfo from './AdditionalSalaryInfo/AdditionalSalaryInfo';
 import Multipliers from '../Multipliers/Multipliers';
 import Animation from '../Animation/Animation';
 import { entertainmentMode } from '../../utils/constants';
