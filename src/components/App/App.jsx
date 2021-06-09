@@ -17,7 +17,7 @@ const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 const App = () =>  {
 
   return (
-    <BrowserRouter basename={process.env.NODE_ENV !== 'development' ? subBasepath : ''}>
+    <BrowserRouter basename={process.env.NODE_ENV !== 'development' ? subBasepath : ''}> {/** is for github pages */}
       <StyleRoot>
         <div className="App">
           <div className='container'>

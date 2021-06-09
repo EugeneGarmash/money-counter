@@ -37,6 +37,9 @@ TO DO
 - NY mood
 - SWR
 
+"homepage": "https://myusername.github.io/my-app",
+is for github pages
+
 
 # Getting Started with Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
