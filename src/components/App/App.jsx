@@ -6,24 +6,12 @@ import {
   Route,
 } from "react-router-dom";
 import AppHeader  from '../AppHeader/AppHeader';
-import AppStepManager from '../AppStepManager';
+import AppStepManager from '../AppStepManager/AppStepManager';
 import { routes } from '../../utils/constants';
 import './App.scss';
 import Helpers from '../Helpers/Helpers';
 import About from '../About/About';
-const AppFooter = React.lazy(() => import('../AppFooter'));
-
-/** @todo personal history */
-// import PersonalHistory from '../PersonalHistory';
-// const PersonalHistory = React.lazy(() => import('../PersonalHistory'));
-// useEffect(() => {
-  // dispatch(checkUserAuth());
-// }, [dispatch]);
-/* <Route path={routes.personal}>
-  <Suspense fallback={<div>LOADING...</div>}>
-    <PersonalHistory />
-  </Suspense>
-</Route> */
+const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 
 const App = () =>  {
 

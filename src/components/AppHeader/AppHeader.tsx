@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import CloseToggleButton from '../Button/CloseToggleButton/CloseToggleButton';
-import MuteButton from '../Button/MuteButton';
+import MuteButton from '../Button/MuteButton/MuteButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { MENU_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
 import { RootState } from '../../redux/store';

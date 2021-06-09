@@ -1,4 +1,11 @@
-const handleActiveTabClose = () => {
+const handleActiveTabClose = (shouldFire) => {
+  console.log('🚀 ~ file: handleActiveTabClose.js ~ line 2 ~ handleActiveTabClose ~ shouldFire', shouldFire);
+
+  if (!shouldFire) {
+    window.onbeforeunload = () => {};
+    document.onkeydown = () => {};
+    return;
+  }
 
   window.onbeforeunload = function (e) {
     e.preventDefault(); // Cancel the event

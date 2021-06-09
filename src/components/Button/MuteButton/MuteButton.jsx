@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { handleVolume } from '../../redux/audioReducer/audioReducer';
-import Button from '../Button/Button';
+import { handleVolume } from '../../../redux/audioReducer/audioReducer';
+import Button from '../../Button/Button';
 import classNames from 'classnames';
 import classes from './MuteButton.module.scss';
 

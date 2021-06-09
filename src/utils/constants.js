@@ -2,12 +2,10 @@ import bonfireWav from '../static/bonfire.wav';
 import forestWav from '../static/forest.wav';
 import rainWav from '../static/rain.wav';
 import seaWav from '../static/sea.wav';
-// import bellsWav from '../static/bells.wav';
 
 export const welcomeText = 'Count your money while working';
 
 export const routes = {
-  // personal: '/personal_history',
   info: '/info',
   main: '/',
 }
@@ -17,7 +15,6 @@ export const entertainmentMode = {
   forest: forestWav,
   sea: seaWav,
   rain: rainWav,
-  // bells: bellsWav,
 };
 
 
@@ -70,5 +67,4 @@ export {
   forestWav,
   rainWav,
   seaWav,
-  // bellsWav,
 }

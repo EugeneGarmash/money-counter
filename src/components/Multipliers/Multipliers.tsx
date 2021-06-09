@@ -10,7 +10,7 @@ const Multipliers = () => {
   const dispatch = useDispatch();
   const multiplier = useSelector((state: RootState) => state.counter.multiplier);
 
-  const increaseIncome = (value: any) => () => {
+  const increaseIncome = (value: number) => () => {
     dispatch(setCounterSalaryStep(value));
   }
 

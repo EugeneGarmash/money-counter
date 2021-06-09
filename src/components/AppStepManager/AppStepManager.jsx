@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import SalaryStep from '../SalaryStep/SalaryStep';
-import CounterStep from '../CounterStep';
+import CounterStep from '../CounterStep/CounterStep';
 import './AppStepManager.scss';
 
 const AppStepManager = () => {

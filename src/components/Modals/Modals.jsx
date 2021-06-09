@@ -1,11 +1,9 @@
 import { Fragment } from 'react';
-import AuthentificationModal from './AuthentificationModal';
-import MenuModal from './MenuModal';
+import MenuModal from './MenuModal/MenuModal';
 
 const Modals = () => {
   return (
     <Fragment>
-      <AuthentificationModal />
       <MenuModal />
     </Fragment>
   )
