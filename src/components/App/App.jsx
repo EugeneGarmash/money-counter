@@ -11,12 +11,13 @@ import { routes } from '../../utils/constants';
 import './App.scss';
 import Helpers from '../Helpers/Helpers';
 import About from '../About/About';
+import { subBasepath } from '../../utils/constants';
 const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 
 const App = () =>  {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.NODE_ENV !== 'development' ? subBasepath : ''}>
       <StyleRoot>
         <div className="App">
           <div className='container'>
