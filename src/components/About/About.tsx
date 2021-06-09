@@ -1,3 +1,4 @@
+import { basepath } from '../../utils/constants';
 import classes from './About.module.scss';
 import email from '../../static/email.svg';
 import telegram from '../../static/telegram.svg';
@@ -7,23 +8,23 @@ import facebook from '../../static/facebook.svg';
 import { welcomeText } from '../../utils/constants';
 
 const shareViaWhatsApp = () => {
-  window.location.href = `whatsapp://send?text=${window.location}`;
+  window.open(`whatsapp://send?text=${basepath}`, '_blank');
 };
 
 const shareViaViber = () => {
-  window.location.href = `viber://forward?text=${window.location}`;
+  window.open(`viber://forward?text=${basepath}`, '_blank');
 };
 
 const shareViaTelegram = () => {
-  window.location.href = `https://t.me/share/url?url=${window.location.protocol}//${window.location.hostname}&text=${welcomeText}`;
+  window.open(`https://t.me/share/url?url=${basepath}&text=${welcomeText}`, '_blank');
 };
 
 const shareViaEmail = () => {
-  window.location.href = `mailto:?body=${window.location}`;
+  window.location.href = `mailto:?body=${basepath}`;
 };
 
 const goToFbPage = () => {
-  window.location.href = 'https://www.facebook.com/eug.garmash';
+  window.open('https://www.facebook.com/eug.garmash', '_blank');
 }
 
 const shareList = [

@@ -1,14 +1,6 @@
-TODO BEFORE RELEASE
-
-1) Redux toolkit - slices + Reselect
-2) use Context API
-3) use correct share link
-4) deploy
-
-
 # money-counter
-Count your money while working
-You can check the project out on [THE LINK](https://the_link)
+Count your money while working \
+You can check the project out on [THE LINK](https://eugenegarmash.github.io/money-counter/) \
 
 You see a money counter written on the JS programming
 language with demonstration purposes.
