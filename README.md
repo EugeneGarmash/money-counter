@@ -1,10 +1,9 @@
 TODO BEFORE RELEASE
 
-1) Fix readme
-2) Redux toolkit - slices + Reselect
-3) use Context API
-4) use correct share link
-5) deploy
+1) Redux toolkit - slices + Reselect
+2) use Context API
+3) use correct share link
+4) deploy
 
 
 # money-counter
