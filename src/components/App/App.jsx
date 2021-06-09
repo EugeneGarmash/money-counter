@@ -1,7 +1,8 @@
 import React, { Suspense } from 'react';
 import { StyleRoot } from 'radium';
 import {
-  BrowserRouter,
+  // BrowserRouter,
+  HashRouter,
   Switch,
   Route,
 } from "react-router-dom";
@@ -17,7 +18,7 @@ const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 const App = () =>  {
 
   return (
-    <BrowserRouter basename={process.env.NODE_ENV !== 'development' ? subBasepath : ''}> {/** is for github pages */}
+    <HashRouter basename={process.env.NODE_ENV !== 'development' ? subBasepath : ''}> {/** is for github pages */}
       <StyleRoot>
         <div className="App">
           <div className='container'>
@@ -44,7 +45,7 @@ const App = () =>  {
           </div>
         </div>
       </StyleRoot>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
