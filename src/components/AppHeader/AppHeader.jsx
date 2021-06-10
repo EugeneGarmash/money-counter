@@ -3,7 +3,7 @@ import CloseToggleButton from '../Button/CloseToggleButton/CloseToggleButton';
 import MuteButton from '../Button/MuteButton/MuteButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { MENU_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
-import { RootState } from '../../redux/store';
+// import { RootState } from '../../redux/store';
 
 /** @info styled components */
 /**
@@ -11,10 +11,11 @@ import { RootState } from '../../redux/store';
  * to modify styles use `props => condition ? a : b ` in template literals
  * but do not forget to pass props first
  * */
-interface StyledDisclaimerType {
-  margin: string;
-}
-const StyledDisclaimer = styled.p<StyledDisclaimerType>`
+// interface StyledDisclaimerType {
+//   margin: string;
+// }
+// <StyledDisclaimerType>
+const StyledDisclaimer = styled.p`
   margin: ${props => props.margin};
   font-size: calc(10px + 1vmin);
   @media (min-width: 2500px) {
@@ -34,7 +35,7 @@ const StyledH1 = styled.h1`
 const AppHeader = () => {
 
   const dispatch = useDispatch();
-  const mobileMeuIsOpen = useSelector((s: RootState) => s.modal[MENU_MODAL].isOpen);
+  const mobileMeuIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 
   const handleToggleMenu = () => {
     dispatch(openModal(MENU_MODAL));
