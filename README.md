@@ -1,6 +1,6 @@
 # money-counter
 Count your money while working
-You can check the project out on [THE LINK](https://eugenegarmash.github.io/money-counter/) \
+You can check the project out via [this link](https://money-counter.vercel.app/)
 
 You see a money counter written on the JS programming
 language with demonstration purposes.
