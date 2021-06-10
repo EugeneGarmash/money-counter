@@ -45,6 +45,7 @@ const SalaryStep = props => {
       <span className='SalaryStep__topText'>I make</span>
       <input
         type='text'
+        inputmode='numeric'
         style={salaryInputStyles}
         value={props.salaryValue}
         onChange={handleSalaryInputChange}
