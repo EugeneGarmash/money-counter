@@ -1,7 +1,7 @@
-import bonfireWav from '../static/bonfire.wav';
-import forestWav from '../static/forest.wav';
-import rainWav from '../static/rain.wav';
-import seaWav from '../static/sea.wav';
+import bonfireWav from '../static/bonfire.mp3';
+import forestWav from '../static/forest.mp3';
+import rainWav from '../static/rain.mp3';
+import seaWav from '../static/sea.mp3';
 
 export const basepath = `money-counter.vercel.app`;
 
