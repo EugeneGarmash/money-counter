@@ -11,23 +11,6 @@ import Button from '../Button/Button';
 import { RootState } from '../../redux/store';
 import { setCounterValue } from '../../redux/counterReducer/counterReducer';
 
-type PropsType = {
-  setCounterPassed: (data: object) => any,
-  counterState: {
-    secondsPassed: number,
-    counterValue: number,
-  },
-  appIsInSalaryStep: boolean,
-  counterIsActive: boolean,
-  salaryValue: number,
-  toggleAppState: () => void,
-  toggleCounterState: () => void,
-  setCounterSalaryStep: (multiplier: number) => void,
-  initializeACounter: () => void,
-  onPauseAudio: () => void,
-  onPlayAudio: () => void,
-}
-
 const connector = connect(
   (state: RootState) => ({
     appIsInSalaryStep: state.app.appIsInSalaryStep, /** @info or (state) => state.app.appState*/

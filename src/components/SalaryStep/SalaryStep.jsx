@@ -1,4 +1,3 @@
-import { useSelector } from 'react-redux';
 import propTypes from 'prop-types';
 import Radium from 'radium';
 import { connect } from 'react-redux';
