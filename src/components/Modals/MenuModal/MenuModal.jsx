@@ -10,12 +10,12 @@ import { NavLink } from "react-router-dom";
 import cn from 'classnames';
 import extraClasses from '../../Multipliers/Multipliers.module.scss';
 import buttonClasses from '../../Button/Button.module.scss';
-import { RootState } from '../../../redux/store';
+// import { RootState } from '../../../redux/store';
 
 const MenuModal = () => {
 
   const dispatch = useDispatch();
-  const menuModalIsOpen = useSelector((s: RootState) => s.modal[MENU_MODAL].isOpen);
+  const menuModalIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 
   const handleCloseMenuModal = () => {
     dispatch(closeModal(MENU_MODAL))

@@ -3,8 +3,7 @@ import forestWav from '../static/forest.wav';
 import rainWav from '../static/rain.wav';
 import seaWav from '../static/sea.wav';
 
-export const subBasepath = 'money-counter';
-export const basepath = `https://eugenegarmash.github.io/${subBasepath}/`;
+export const basepath = `money-counter.vercel.app`;
 
 export const welcomeText = 'Count your money while working';
 
