@@ -3,14 +3,9 @@ import AppMainButton from '../AppMainButton/AppMainButton';
 import './AppFooter.scss';
 
 type PropsType = {
-  setCounterPassed: () => any,
-  counterState: {
-    secondsPassed: number,
-    counterValue: number,
-  },
 }
 
-const AppFooter: React.FC<PropsType> = props => {
+const AppFooter: React.FC<PropsType> = () => {
 
   return (
     <div className='AppFooter'>

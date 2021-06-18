@@ -6,6 +6,7 @@ import viber from '../../static/viber.svg';
 import whatsapp from '../../static/whatsapp.svg';
 import facebook from '../../static/facebook.svg';
 import { welcomeText } from '../../utils/constants';
+import { useLocalization } from '../../utils/translations';
 
 const shareViaWhatsApp = () => {
   window.open(`whatsapp://send?text=${basepath}`, '_blank');
@@ -56,9 +57,12 @@ const shareList = [
 ];
 
 const About = () => {
+
+  const { translations } = useLocalization();
+
   return (
     <div className={classes.About}>
-      <p className={classes.About_greeting}>I am Yevhen Harmash and I'm a web developer</p>
+      <p className={classes.About_greeting}>{translations.who_i_am}</p>
       <ul className={classes.About__shareList}>
         {shareList.map(shareItem => {
           return (
@@ -79,14 +83,14 @@ const About = () => {
       </ul>
 
       <div className={classes.About__info}>
-        <p className={classes.About__p}>The belowmentioned technologies and techniques are used for practice:</p>
+        <p className={classes.About__p}>{translations.info_title}</p>
         <ul className={classes.About__infoList}>
-          <li>1. React hooks, Redux hooks, React-redux</li>
-          <li>2. React-router</li>
-          <li>3. Class and Functional components</li>
-          <li>4. Context API</li>
-          <li>5. Styling: CSS Modules, Styled C, Radium, SCSS (vars, mixins, nesting)</li>
-          <li>6. Audio API</li>
+          <li>1. {translations.info_hooks_n_redux}</li>
+          <li>2. {translations.info_reactRouter}</li>
+          <li>3. {translations.info_components}</li>
+          <li>4. {translations.info_context}</li>
+          <li>5. {translations.info_styling}</li>
+          <li>6. {translations.info_audio_api}</li>
         </ul>
       </div>
 

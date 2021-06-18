@@ -7,7 +7,7 @@ const Button = props => {
     <button
       className={classNames(
         classes.Button, {
-        [classes.Button__fullHeight]: props.fullHeight,
+        [classes.Button_fullHeight]: props.fullHeight
       })}
       onClick={props.onClick}
       disabled={props.disabled}
