@@ -29,7 +29,7 @@ const App = () =>  {
     translations: {},
     language: defaultLang,
   });
-  // console.log('🚀 ~ file: App.tsx ~ line 56 ~ App ~ language', localization.translations);
+  console.log('🚀 ~ file: App.tsx ~ line 56 ~ App ~ language', localization.translations);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,7 +40,7 @@ const App = () =>  {
           translations: response,
         }));
     });
-  }, [dispatch, localization.language])
+  }, [dispatch])
 
   // lang - query !!
 

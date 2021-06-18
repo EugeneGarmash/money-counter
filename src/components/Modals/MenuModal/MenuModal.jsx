@@ -6,15 +6,23 @@ import {
 } from '../../../redux/modalReducer/modalReducer';
 import Modal from '../../Modal/Modal';
 import { routes } from '../../../utils/constants';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import cn from 'classnames';
 import extraClasses from '../../Multipliers/Multipliers.module.scss';
 import buttonClasses from '../../Button/Button.module.scss';
+import Button from '../../Button/Button';
+import { useLocalization } from '../../../utils/translations';
 // import { RootState } from '../../../redux/store';
+
+const languages = [ // ENV VARS
+  'ru',
+  'en',
+];
 
 const MenuModal = () => {
 
   const dispatch = useDispatch();
+  const localizationContext = useLocalization();
   const menuModalIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 
   const handleCloseMenuModal = () => {
@@ -23,6 +31,14 @@ const MenuModal = () => {
 
   const handleMenuItemClick = () => {
     dispatch(closeModal(MENU_MODAL));
+  }
+
+  const handleLanguageChange = language => () => {
+    dispatch(closeModal(MENU_MODAL))
+    localizationContext.setLocality({
+      ...localizationContext,
+      language,
+    });
   }
 
   return (
@@ -58,12 +74,32 @@ const MenuModal = () => {
           ))}
         </ul>
 
-        {/* <p></p> */}
-
+        <ul className='MenuModal__langList'>
+          {languages.map(item => {
+            return (
+              <Link>
+                <li
+                  key={item}
+                  className='MenuModal__langItem'
+                >
+                  <Button
+                    disabled={localizationContext.language === item}
+                    onClick={handleLanguageChange(item)}
+                  >
+                    {item}
+                  </Button>
+                </li>
+              </Link>
+            )
+          })}
+        </ul>
       </div>
       <style jsx>{`
         .MenuModal {
           width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
         }
         @media (min-width: 767px) {
           .MenuModal {
@@ -82,6 +118,15 @@ const MenuModal = () => {
         .MenuModal__menuLink {
           margin-bottom: 25px;
           color: #e6e0e0;
+        }
+        .MenuModal__langList {
+          display: flex;
+          margin-top: auto;
+          margin-bottom: 25px;
+        }
+        .MenuModal__langItem {
+          width: 50px;
+          margin-right: 25px;
         }
       `}</style>
 
