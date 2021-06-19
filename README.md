@@ -2,7 +2,7 @@
 Count your money while working
 You can check the project out via [this link](https://money-counter.vercel.app/)
 
-You see a money counter written on the TS mainly with demonstration purposes.
+You see a money counter written on TS mainly with demonstration purposes.
 The belowmentioned technologies and techniques are used for practice:
 
 TS:
