@@ -49,11 +49,12 @@
   "share_via_whatsapp": "Share via Whatsapp",
 
   "info_title": "The belowmentioned technologies and techniques are used for practice:",
+  "info_ts": "TypeScript",
   "info_hooks_n_redux": "React hooks, Redux hooks, React-redux",
   "info_reactRouter": "React-router",
   "info_components": "Class and Functional components",
   "info_context": "Context API",
-  "info_styling": "Styling: CSS Modules, Styled C, Radium, SCSS (vars, mixins, nesting)",
+  "info_styling": "Styling: CSS Modules, SCSS, Styled C, Radium",
   "info_audio_api": "Audio API",
 
   "": ""

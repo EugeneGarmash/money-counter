@@ -49,11 +49,12 @@
   "share_via_whatsapp": "Поделиться через Whatsapp",
 
   "info_title": "Следующие технологии были использованы на проекте в целях практики",
+  "info_ts": "TypeScript",
   "info_hooks_n_redux": "React hooks, Redux hooks, React-redux",
   "info_reactRouter": "React-router",
   "info_components": "Классовые и функциональные компоненты",
   "info_context": "Context API",
-  "info_styling": "Styling: CSS Modules, Styled C, Radium, SCSS (vars, mixins, nesting)",
+  "info_styling": "Styling: CSS Modules, SCSS, Styled C, Radium",
   "info_audio_api": "Audio API",
 
   "": ""

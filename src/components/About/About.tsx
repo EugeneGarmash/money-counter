@@ -1,11 +1,10 @@
-import { basepath } from '../../utils/constants';
+import { basepath, welcomeText } from '../../utils/constants';
 import classes from './About.module.scss';
 import email from '../../static/email.svg';
 import telegram from '../../static/telegram.svg';
 import viber from '../../static/viber.svg';
 import whatsapp from '../../static/whatsapp.svg';
 import facebook from '../../static/facebook.svg';
-import { welcomeText } from '../../utils/constants';
 import { useLocalization } from '../../utils/translations';
 
 const shareViaWhatsApp = () => {
@@ -61,6 +60,7 @@ const About = () => {
   const { translations } = useLocalization();
 
   const infoList = [
+    translations.info_ts,
     translations.info_hooks_n_redux,
     translations.info_reactRouter,
     translations.info_components,
@@ -94,7 +94,10 @@ const About = () => {
       <div className={classes.About__info}>
         <p className={classes.About__p}>{translations.info_title}</p>
         <ul className={classes.About__infoList}>
-          {infoList.map((info, index) => <li key={info}>{index + 1}. {info}</li>)}
+          {Object.values(translations).length
+            ? infoList.map((info, index) => <li key={info}>{index + 1}. {info}</li>)
+            : null
+          }
         </ul>
       </div>
 
