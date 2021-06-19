@@ -12,8 +12,8 @@ TS:
 2. Context API
 3. React-router
 4. Class components / Functional components
-6. Various libraries
-7. Audio API
+5. Various libraries
+6. Audio API
 
 - Redux
 1. React-redux
