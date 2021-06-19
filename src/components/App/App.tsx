@@ -1,28 +1,21 @@
-import React, { Suspense, useContext, useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 // import StyleRoot from 'radium';
 import Radium from 'radium';
 import {
   BrowserRouter,
   Switch,
   Route,
+  Redirect,
 } from "react-router-dom";
 import AppHeader  from '../AppHeader/AppHeader';
 import AppStepManager from '../AppStepManager/AppStepManager';
-import { routes } from '../../utils/constants';
+import { langSegmentRegexp, routesRegexped, DEFAULT_LANG, LANGUAGES, fallbackDefaultLang } from '../../utils/constants';
 import './App.scss';
 import Helpers from '../Helpers/Helpers';
 import About from '../About/About';
 import { useDispatch } from 'react-redux';
-import { getTranslations, defaultLang } from '../../redux/appReducer/appReducer';
 import { fetchLanguages, Localization } from '../../utils/translations';
 const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
-
-// LOCALIZATION - ru / eng // change languages
-{/* <NotFoundPage /> */}
-{/* Route in Route */}
-// ENV VARS
-// MenuModal
-// empty language redirect
 
 export interface Translations {
   [id: string]: string;
@@ -32,19 +25,23 @@ const App = () =>  {
 
   const [localization, setLocalization] = useState({
     translations: {},
-    language: defaultLang,
+    language: DEFAULT_LANG,
   });
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetchLanguages(localization.language)
+    const urlLang = window.location.pathname.match(langSegmentRegexp)?.[0];
+    const urlNoSlash = urlLang?.slice(1, -1) || '';
+    const doesLangExist = LANGUAGES.includes(urlNoSlash);
+    fetchLanguages(doesLangExist ? urlNoSlash : (localization.language || fallbackDefaultLang))
       .then(response => {
         setLocalization(localization => ({
           ...localization,
           translations: response,
+          language: urlNoSlash || DEFAULT_LANG,
         }));
     });
-  }, [dispatch])
+  }, [dispatch, localization.language])
 
   return (
     <BrowserRouter>
@@ -64,20 +61,30 @@ const App = () =>  {
               <Switch>
                 <Route
                   exact
-                  path={routes.info}
+                  strict
+                  path={routesRegexped.info}
                 >
                   <About />
                 </Route>
 
                 <Route
-                  // exact
-                  path={routes.main}
+                  exact
+                  strict
+                  path={routesRegexped.main}
                 >
                   <AppStepManager />
                   <Suspense fallback={<div>LOADING...</div>}>
                     <AppFooter />
                   </Suspense>
                 </Route>
+
+                <Redirect
+                  to={window.location.pathname.endsWith('/')
+                    ? `/${DEFAULT_LANG}/`
+                    : window.location.pathname + '/'
+                  }
+                />
+
               </Switch>
 
               <Helpers />

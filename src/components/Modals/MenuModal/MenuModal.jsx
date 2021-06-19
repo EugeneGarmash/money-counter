@@ -10,13 +10,8 @@ import { NavLink, Link } from "react-router-dom";
 import cn from 'classnames';
 import extraClasses from '../../Multipliers/Multipliers.module.scss';
 import buttonClasses from '../../Button/Button.module.scss';
-import Button from '../../Button/Button';
 import { useLocalization } from '../../../utils/translations';
-
-const languages = [
-  'ru',
-  'en',
-];
+import { langSegmentRegexp, LANGUAGES } from '../../../utils/constants';
 
 const MenuModal = () => {
 
@@ -74,17 +69,18 @@ const MenuModal = () => {
         </ul>
 
         <ul className='MenuModal__langList'>
-          {languages.map(item => {
+          {LANGUAGES.map(item => {
             return (
               <li
                 key={item}
                 className='MenuModal__langItem'
-                // onClick={handleLanguageChange(item)}
               >
                 <Link
-                  className={buttonClasses.Button}
-                  to={item.replace(/:lang/, localizationContext.language)}
-                  disabled={localizationContext.language === item}
+                  className={cn(
+                    buttonClasses.Button, {
+                    [buttonClasses.Button_disabled]: localizationContext.language === item,
+                  })}
+                  to={location => location.pathname.replace(langSegmentRegexp, `/${item}/`)}
                   onClick={handleLanguageChange(item)}
                 >
                   {item}

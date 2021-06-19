@@ -3,15 +3,32 @@ import forestWav from '../static/forest.mp3';
 import rainWav from '../static/rain.mp3';
 import seaWav from '../static/sea.mp3';
 
-export const basepath = `money-counter.vercel.app`;
+export const LANGUAGES = process.env.REACT_APP_LANG_LIST.split(',');
+export const DEFAULT_LANG = process.env.REACT_APP_DEFAULT_LANG;
+export const fallbackDefaultLang = 'en';
 
+export const basepath = `money-counter.vercel.app`;
 export const welcomeText = 'Count your money while working';
 
+// routing start
+export const langSegmentRegexp = /\/\w{2}\//;
+
 export const routes = {
-  blank: '/',
   info: '/:lang/info/',
-  main: '/:lang/',
+  main: `/:lang/`,
 }
+
+// export const routesRegexped = routes.map(route => { // просто вставить regexp
+//   /:lang
+// });
+// https://codesandbox.io/s/react-router-regex-jbqxh?file=/src/index.tsx
+// https://github.com/ReactTraining/react-router/issues/820#issuecomment-256814655
+
+export const routesRegexped = {
+  info: '/:lang([a-z]{2})/info/',
+  main: '/:lang([a-z]{2})/',
+}
+// routing end
 
 export const entertainmentMode = {
   fire: bonfireWav,

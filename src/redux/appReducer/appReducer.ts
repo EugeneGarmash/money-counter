@@ -1,6 +1,7 @@
 import { changeTrack, launchAnAudio, pauseAudio, stopAudio, changeSource } from "../audioReducer/audioReducer";
 import { RootState } from '../store';
-import { RSAA, RSAAAction  } from 'redux-api-middleware';
+// import { RSAA, RSAAAction  } from 'redux-api-middleware';
+// import { DEFAULT_LANG, fallbackDefaultLang } from '../../utils/constants';
 
 const TOGGLE_APP_STATE = 'TOGGLE_APP_STATE';
 const CHANGE_ENTERTAINMENT_MODE = 'CHANGE_ENTERTAINMENT_MODE';
@@ -73,22 +74,21 @@ export interface Translations {
   [id: string]: string;
 }
 
-export const defaultLang = 'en';
-
-export const getTranslations = (language: string = defaultLang): RSAAAction<RootState, Translations> => ({
-  [RSAA]: {
-    method: 'GET',
-    endpoint: `/translations/${language}.json`,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    types: [
-      GET_TRANSLATION_REQUEST,
-      GET_TRANSLATION_SUCCESS,
-      GET_TRANSLATION_ERROR,
-    ]
-  }
-});
+// export const getTranslations =
+//   (language: string = DEFAULT_LANG || fallbackDefaultLang): RSAAAction<RootState, Translations> => ({
+//     [RSAA]: {
+//       method: 'GET',
+//       endpoint: `/translations/${language}.json`,
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       types: [
+//         GET_TRANSLATION_REQUEST,
+//         GET_TRANSLATION_SUCCESS,
+//         GET_TRANSLATION_ERROR,
+//       ]
+//     }
+// });
 
 const appReducer = (state = initialState, action: any): AppState => {
 
