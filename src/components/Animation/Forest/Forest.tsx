@@ -1,7 +1,10 @@
-import React from 'react';
 import classes from './Forest.module.scss';
 
-const Forest = props => {
+interface Props {
+  paused: boolean;
+}
+
+const Forest = (props: Props) => {
   return (
     <div className={classes.triangles}>
       <div className={classes.triangle2}></div>

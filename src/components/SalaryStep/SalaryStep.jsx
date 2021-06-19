@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setSalaryValue } from '../../redux/salaryReducer/salaryActionCreators';
 import { initializeACounter } from '../../redux/counterReducer/counterReducer';
 import './SalaryStep.scss';
+import { useLocalization } from '../../utils/translations';
 
 /** @info radium */
 const salaryInputStyles = {
@@ -31,6 +32,8 @@ const salaryInputStyles = {
 
 const SalaryStep = props => {
 
+  const { translations } = useLocalization();
+
   const handleSalaryInputChange = event => {
     props.setSalaryValue(event.target.value);
   }
@@ -42,17 +45,17 @@ const SalaryStep = props => {
 
   return (
     <div className='SalaryStep'>
-      <span className='SalaryStep__topText'>I make</span>
+      <span className='SalaryStep__topText'>{translations.i_make}</span>
       <input
         type='text'
         inputMode='numeric'
         style={salaryInputStyles}
         value={props.salaryValue}
         onChange={handleSalaryInputChange}
-        placeholder='type here'
+        placeholder={translations.type_here}
         onKeyDown={handlePressEnter}
       />
-      <span className='SalaryStep__bottomText'>units per month</span>
+      <span className='SalaryStep__bottomText'>{translations.units_per_month}</span>
       <br />
     </div>
   );

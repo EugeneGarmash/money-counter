@@ -4,10 +4,12 @@ import classes from './Multipliers.module.scss';
 import Button from '../Button/Button';
 import { incomeArray } from '../../utils/constants';
 import { RootState } from '../../redux/store';
+import { useLocalization } from '../../utils/translations';
 
 const Multipliers = () => {
 
   const dispatch = useDispatch();
+  const { translations } = useLocalization();
   const multiplier = useSelector((state: RootState) => state.counter.multiplier);
 
   const increaseIncome = (value: number) => () => {
@@ -16,7 +18,7 @@ const Multipliers = () => {
 
   return (
     <ul className={classes.Multipliers}>
-      { incomeArray.map((incomeItem, index) =>
+      { incomeArray.map(incomeItem =>
           <li
             key={incomeItem}
             className={classes.Multipliers__items}
@@ -25,7 +27,7 @@ const Multipliers = () => {
               onClick={increaseIncome(incomeItem)}
               disabled={incomeItem === multiplier}
             >
-              {incomeItem}x income
+              {incomeItem}{translations.x_income}
             </Button>
           </li>
       )}

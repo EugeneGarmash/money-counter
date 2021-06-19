@@ -1,5 +1,4 @@
 import React, { Suspense, useEffect, useState } from 'react';
-// import StyleRoot from 'radium';
 import Radium from 'radium';
 import {
   BrowserRouter,
@@ -16,10 +15,6 @@ import About from '../About/About';
 import { useDispatch } from 'react-redux';
 import { fetchLanguages, Localization } from '../../utils/translations';
 const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
-
-export interface Translations {
-  [id: string]: string;
-}
 
 const App = () =>  {
 

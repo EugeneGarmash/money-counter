@@ -17,6 +17,7 @@ const MenuModal = () => {
 
   const dispatch = useDispatch();
   const localizationContext = useLocalization();
+  const { translations, setLocality, language } = localizationContext;
   const menuModalIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 
   const handleCloseMenuModal = () => {
@@ -29,7 +30,7 @@ const MenuModal = () => {
 
   const handleLanguageChange = language => () => {
     dispatch(closeModal(MENU_MODAL))
-    localizationContext.setLocality({
+    setLocality({
       ...localizationContext,
       language,
     });
@@ -57,12 +58,12 @@ const MenuModal = () => {
               >
                 <NavLink
                   className={buttonClasses.Button}
-                  to={entry[1].replace(/:lang/, localizationContext.language)}
+                  to={entry[1].replace(/:lang/, language)}
                   activeClassName={buttonClasses.Button_disabled}
                   exact
                   onClick={handleMenuItemClick}
                 >
-                  {entry[0]}
+                  {translations[entry[0]]}
                 </NavLink>
               </li>
           ))}
@@ -78,12 +79,12 @@ const MenuModal = () => {
                 <Link
                   className={cn(
                     buttonClasses.Button, {
-                    [buttonClasses.Button_disabled]: localizationContext.language === item,
+                    [buttonClasses.Button_disabled]: language === item,
                   })}
                   to={location => location.pathname.replace(langSegmentRegexp, `/${item}/`)}
                   onClick={handleLanguageChange(item)}
                 >
-                  {item}
+                  {translations[item]}
                 </Link>
               </li>
             )
@@ -118,7 +119,6 @@ const MenuModal = () => {
         .MenuModal__langList {
           display: flex;
           margin-top: auto;
-          margin-bottom: 25px;
         }
         .MenuModal__langItem {
           width: 50px;

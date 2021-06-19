@@ -9,17 +9,22 @@ import { entertainmentMode } from '../../utils/constants';
 import { changeEntertainmentMode } from '../../redux/appReducer/appReducer';
 import Button from '../Button/Button';
 import { switchAnimation } from '../../redux/appReducer/appReducer';
+import { useLocalization } from '../../utils/translations';
+import { RootState } from '../../redux/store';
 
 const CounterStep = () => {
   const dispatch = useDispatch();
+  const { translations } = useLocalization();
 
-  const appEntertainmentMode = useSelector(s => s.app.entertainmentMode);
-  const animationIsOn = useSelector(state => state.app.animationIsOn);
+  const appEntertainmentMode = useSelector((s: RootState) => s.app.entertainmentMode);
+  const animationIsOn = useSelector((s: RootState) => s.app.animationIsOn);
 
-  const counterTimeStep = useSelector(state => state.counter.counterTimeStep);
-  const counterSalaryStep = useSelector(state => state.counter.counterSalaryStep);
-  const counterValue = useSelector(state => state.counter.counterValue);
-  const counterSecondsPassed = useSelector(state => state.counter.secondsPassed);
+  const counterTimeStep = useSelector((s: RootState) => s.counter.counterTimeStep);
+  const counterSalaryStep = useSelector((s: RootState) => s.counter.counterSalaryStep);
+  const counterValue = useSelector((s: RootState) => s.counter.counterValue);
+  const counterSecondsPassed = useSelector((s: RootState) => s.counter.secondsPassed);
+
+  const correctTimeName = getCorrectTimeName(counterSecondsPassed, translations);
 
   const handleChangeView = () => dispatch(switchAnimation(!animationIsOn));
 
@@ -27,15 +32,15 @@ const CounterStep = () => {
     <Fragment>
 
       <div className={classes.mainInfoContainer}>
-        <p className={classes.CounterStep__noPaddingItem}>You've got</p>
+        <p className={classes.CounterStep__noPaddingItem}>{translations.you_have}</p>
         <p className={`${classes.CounterStep} ${classes.CounterStep__noPaddingItem}`}>
-          {counterValue.toFixed(2)} items
+          {counterValue.toFixed(2)} {translations.items}
         </p>
         <p className={classes.CounterStep__noPaddingItem}>
-          for the last {getCorrectTimeName(counterSecondsPassed)}
+          {translations.for_the_last} {correctTimeName}
         </p>
         <p className={classes.CounterStep__salaryPerSecond}>
-          You get ~{counterSalaryStep.toFixed(2)} items per {counterTimeStep / 1000} second(s)
+          {translations.you_get} ~{counterSalaryStep.toFixed(2)} {translations.items_per} {counterTimeStep / 1000} {translations.second1}
         </p>
       </div>
 
@@ -58,7 +63,7 @@ const CounterStep = () => {
                           onClick={() => dispatch(changeEntertainmentMode(entry))}
                           disabled={name === appEntertainmentMode}
                         >
-                          {name}
+                          {translations[name]}
                         </Button>
                       </li>
                     )

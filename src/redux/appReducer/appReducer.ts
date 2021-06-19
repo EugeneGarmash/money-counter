@@ -7,16 +7,16 @@ const TOGGLE_APP_STATE = 'TOGGLE_APP_STATE';
 const CHANGE_ENTERTAINMENT_MODE = 'CHANGE_ENTERTAINMENT_MODE';
 const SWITCH_ANIMATION = 'SWITCH_ANIMATION';
 
-const GET_TRANSLATION_REQUEST = 'GET_TRANSLATION_REQUEST';
-const GET_TRANSLATION_SUCCESS = 'GET_TRANSLATION_SUCCESS';
-const GET_TRANSLATION_ERROR = 'GET_TRANSLATION_ERROR';
+// const GET_TRANSLATION_REQUEST = 'GET_TRANSLATION_REQUEST';
+// const GET_TRANSLATION_SUCCESS = 'GET_TRANSLATION_SUCCESS';
+// const GET_TRANSLATION_ERROR = 'GET_TRANSLATION_ERROR';
 
 interface AppState {
   appIsInSalaryStep: boolean,
   entertainmentMode: string,
   spinner: boolean,
   animationIsOn: boolean,
-  translations: { [key: string]: string }
+  // translations: { [key: string]: string }
 }
 
 const initialState: AppState = {
@@ -24,7 +24,7 @@ const initialState: AppState = {
   entertainmentMode: '',
   spinner: false,
   animationIsOn: true,
-  translations: {},
+  // translations: {},
 }
 
 export const toggleAppState = () => (dispatch: any, getState: () => RootState) => {
@@ -113,22 +113,22 @@ const appReducer = (state = initialState, action: any): AppState => {
         animationIsOn: action.payload,
       }
 
-    case GET_TRANSLATION_REQUEST:
-      return {
-        ...state,
-        spinner: true,
-      }
-    case GET_TRANSLATION_SUCCESS:
-      return {
-        ...state,
-        translations: action.payload,
-        spinner: false,
-      }
-    case GET_TRANSLATION_ERROR:
-      return {
-        ...state,
-        spinner: false,
-      }
+    // case GET_TRANSLATION_REQUEST:
+    //   return {
+    //     ...state,
+    //     spinner: true,
+    //   }
+    // case GET_TRANSLATION_SUCCESS:
+    //   return {
+    //     ...state,
+    //     translations: action.payload,
+    //     spinner: false,
+    //   }
+    // case GET_TRANSLATION_ERROR:
+    //   return {
+    //     ...state,
+    //     spinner: false,
+    //   }
 
     default:
       return state;

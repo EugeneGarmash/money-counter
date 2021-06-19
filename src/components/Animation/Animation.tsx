@@ -4,33 +4,34 @@ import Forest from './Forest/Forest';
 import Waves from './Waves/Waves';
 import Rain from './Rain/Rain';
 import classes from './Animation.module.scss';
+import { RootState } from '../../redux/store';
 
 const Animation = () => {
 
-  const entertainmentMode = useSelector(s => s.app.entertainmentMode);
-  const counterIsActive = useSelector(s => s.counter.counterIsActive);
+  const entertainmentMode = useSelector((s: RootState) => s.app.entertainmentMode);
+  const counterIsActive = useSelector((s: RootState) => s.counter.counterIsActive);
 
   const renderAnimation = () => {
     switch (entertainmentMode) {
       case 'fire':
         return (
-          <Fire paused={!counterIsActive}/>
+          <Fire paused={!counterIsActive} />
         )
       case 'forest':
         return (
-          <Forest paused={!counterIsActive}/>
+          <Forest paused={!counterIsActive} />
         )
       case 'sea':
         return (
-          <Waves paused={!counterIsActive}/>
+          <Waves paused={!counterIsActive} />
         )
       case 'rain':
         return (
-          <Rain paused={!counterIsActive}/>
+          <Rain paused={!counterIsActive} />
         )
       default:
         return (
-          <Fire />
+          <Fire paused={!counterIsActive} />
         )
     }
   }

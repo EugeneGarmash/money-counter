@@ -1,8 +1,13 @@
 import classes from './AdditionalSalaryInfo.module.scss';
 import { additionalies } from '../../../utils/constants';
 import formatNumberWithComas from '../../../utils/formatNumberWithComas';
+import { useLocalization } from '../../../utils/translations';
 
-const AdditionalSalaryInfo = ({ counterSalaryStep }) => {
+const AdditionalSalaryInfo = ({ counterSalaryStep }: { counterSalaryStep: number }) => {
+
+  const { translations } = useLocalization();
+
+
   return (
     <ul className={classes.AdditionalSalaryInfo}>
       { additionalies.map((additionaly) => {
@@ -13,7 +18,7 @@ const AdditionalSalaryInfo = ({ counterSalaryStep }) => {
               key={additionaly.time}
               className={classes.AdditionalSalaryInfo__additionaly}
             >
-              You make ~ {formatNumberWithComas(salaryToFixed)} items {additionaly.time}
+              {translations.you_make} ~ {formatNumberWithComas(salaryToFixed)} {translations.items} {translations[additionaly.time]}
             </li>
           );
         })

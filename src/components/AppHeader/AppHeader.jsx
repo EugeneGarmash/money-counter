@@ -4,7 +4,6 @@ import MuteButton from '../Button/MuteButton/MuteButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { MENU_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
 import { useLocalization } from '../../utils/translations';
-// import { RootState } from '../../redux/store';
 
 /** @info styled components */
 /**

@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './Rain.module.scss';
 
-const Rain = ({ paused }) => {
+const Rain = ({ paused } : { paused: boolean }) => {
   return (
     <div className={classes.rainyWeather}>
       <div className={classes.cloudMain}/>

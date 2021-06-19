@@ -31,27 +31,27 @@ const goToFbPage = () => {
 const shareList = [
   {
     image: facebook,
-    id: 'Go to author\'s Facebook page',
+    id: 'share_via_facebook',
     callback: goToFbPage,
   },
   {
     image: email,
-    id: 'Share via email',
+    id: 'share_via_email',
     callback: shareViaEmail,
   },
   {
     image: telegram,
-    id: 'Share via Telegram',
+    id: 'share_via_telegram',
     callback: shareViaTelegram ,
   },
   {
     image: viber,
-    id: 'Share via Viber',
+    id: 'share_via_viber',
     callback: shareViaViber ,
   },
   {
     image: whatsapp,
-    id: 'Share via Whatsapp',
+    id: 'share_via_whatsapp',
     callback: shareViaWhatsApp,
   },
 ];
@@ -59,6 +59,15 @@ const shareList = [
 const About = () => {
 
   const { translations } = useLocalization();
+
+  const infoList = [
+    translations.info_hooks_n_redux,
+    translations.info_reactRouter,
+    translations.info_components,
+    translations.info_context,
+    translations.info_styling,
+    translations.info_audio_api,
+  ]
 
   return (
     <div className={classes.About}>
@@ -73,10 +82,10 @@ const About = () => {
             >
               <div className={classes.About__shareLogo}>
                 <div className={classes.About__imageContainer}>
-                  <img src={shareItem.image} alt="" className={classes.About__image} />
+                  <img src={shareItem.image} alt={shareItem.image} className={classes.About__image} />
                 </div>
               </div>
-              <p className={classes.About__optionText}>{shareItem.id}</p>
+              <p className={classes.About__optionText}>{translations[shareItem.id]}</p>
             </li>
           )
         })}
@@ -85,12 +94,7 @@ const About = () => {
       <div className={classes.About__info}>
         <p className={classes.About__p}>{translations.info_title}</p>
         <ul className={classes.About__infoList}>
-          <li>1. {translations.info_hooks_n_redux}</li>
-          <li>2. {translations.info_reactRouter}</li>
-          <li>3. {translations.info_components}</li>
-          <li>4. {translations.info_context}</li>
-          <li>5. {translations.info_styling}</li>
-          <li>6. {translations.info_audio_api}</li>
+          {infoList.map((info, index) => <li key={info}>{index + 1}. {info}</li>)}
         </ul>
       </div>
 

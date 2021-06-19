@@ -53,31 +53,31 @@ export const incomeArray = [1, 1.5, 2, 5];
 export const additionalies = [
   {
     seconds: 60,
-    time: 'per minute',
+    time: 'time_per_minute',
   },
   {
     seconds: 3600,
-    time: 'per hour',
+    time: 'time_per_hour',
   },
   {
     seconds: 32400,
-    time: 'per day',
+    time: 'time_per_day',
   },
   {
     seconds: 162000,
-    time: 'per workweek',
+    time: 'time_per_workweek',
   },
   {
     seconds: 712800,
-    time: 'per month',
+    time: 'time_per_month',
   },
   {
     seconds: 8553600,
-    time: 'per year',
+    time: 'time_per_year',
   },
   {
     seconds: 102643200,
-    time: 'when you\'re young (21 - 32 y.o.)',
+    time: 'time_when_you_young',
   },
 ];
 
