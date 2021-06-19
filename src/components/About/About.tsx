@@ -1,11 +1,11 @@
-import { basepath } from '../../utils/constants';
+import { basepath, welcomeText } from '../../utils/constants';
 import classes from './About.module.scss';
 import email from '../../static/email.svg';
 import telegram from '../../static/telegram.svg';
 import viber from '../../static/viber.svg';
 import whatsapp from '../../static/whatsapp.svg';
 import facebook from '../../static/facebook.svg';
-import { welcomeText } from '../../utils/constants';
+import { useLocalization } from '../../utils/translations';
 
 const shareViaWhatsApp = () => {
   window.open(`whatsapp://send?text=${basepath}`, '_blank');
@@ -30,35 +30,48 @@ const goToFbPage = () => {
 const shareList = [
   {
     image: facebook,
-    id: 'Go to author\'s Facebook page',
+    id: 'share_via_facebook',
     callback: goToFbPage,
   },
   {
     image: email,
-    id: 'Share via email',
+    id: 'share_via_email',
     callback: shareViaEmail,
   },
   {
     image: telegram,
-    id: 'Share via Telegram',
+    id: 'share_via_telegram',
     callback: shareViaTelegram ,
   },
   {
     image: viber,
-    id: 'Share via Viber',
+    id: 'share_via_viber',
     callback: shareViaViber ,
   },
   {
     image: whatsapp,
-    id: 'Share via Whatsapp',
+    id: 'share_via_whatsapp',
     callback: shareViaWhatsApp,
   },
 ];
 
 const About = () => {
+
+  const { translations } = useLocalization();
+
+  const infoList = [
+    translations.info_ts,
+    translations.info_hooks_n_redux,
+    translations.info_reactRouter,
+    translations.info_components,
+    translations.info_context,
+    translations.info_styling,
+    translations.info_audio_api,
+  ]
+
   return (
     <div className={classes.About}>
-      <p className={classes.About_greeting}>I am Yevhen Harmash and I'm a web developer</p>
+      <p className={classes.About_greeting}>{translations.who_i_am}</p>
       <ul className={classes.About__shareList}>
         {shareList.map(shareItem => {
           return (
@@ -69,24 +82,22 @@ const About = () => {
             >
               <div className={classes.About__shareLogo}>
                 <div className={classes.About__imageContainer}>
-                  <img src={shareItem.image} alt="" className={classes.About__image} />
+                  <img src={shareItem.image} alt={shareItem.image} className={classes.About__image} />
                 </div>
               </div>
-              <p className={classes.About__optionText}>{shareItem.id}</p>
+              <p className={classes.About__optionText}>{translations[shareItem.id]}</p>
             </li>
           )
         })}
       </ul>
 
       <div className={classes.About__info}>
-        <p className={classes.About__p}>The belowmentioned technologies and techniques are used for practice:</p>
+        <p className={classes.About__p}>{translations.info_title}</p>
         <ul className={classes.About__infoList}>
-          <li>1. React hooks, Redux hooks, React-redux</li>
-          <li>2. React-router</li>
-          <li>3. Class and Functional components</li>
-          <li>4. Context API</li>
-          <li>5. Styling: CSS Modules, Styled C, Radium, SCSS (vars, mixins, nesting)</li>
-          <li>6. Audio API</li>
+          {Object.values(translations).length
+            ? infoList.map((info, index) => <li key={info}>{index + 1}. {info}</li>)
+            : null
+          }
         </ul>
       </div>
 

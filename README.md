@@ -2,20 +2,18 @@
 Count your money while working
 You can check the project out via [this link](https://money-counter.vercel.app/)
 
-You see a money counter written on the JS programming
-language with demonstration purposes.
+You see a money counter written on the TS mainly with demonstration purposes.
 The belowmentioned technologies and techniques are used for practice:
 
-JS:
+TS:
 
 - React
 1. React hooks
 2. Context API
 3. React-router
-4. Class components
-5. Functional components
-6. Various libraries
-7. Audio API
+4. Class components / Functional components
+5. Various libraries
+6. Audio API
 
 - Redux
 1. React-redux
@@ -23,19 +21,14 @@ JS:
 3. No switch case reducer usage
 
 Styling
-1. Radium
-2. CSS Modules
-3. Styled components
-4. SCSS (variables, mixins and nesting)
+1. CSS Modules
+2. SCSS (variables, mixins and nesting)
+3. Radium
+4. Styled components
 5. Inline styling
 6. External font usage
-7. Custom Favicon use
 
-TO DO
-- Personal Cabinet (Firebase used)
-- className deduplication: can be possibly fixed via eject or post-css
-- NY mood
-- SWR
+_____
 
 
 # Getting Started with Create React App

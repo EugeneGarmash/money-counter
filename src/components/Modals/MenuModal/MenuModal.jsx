@@ -6,15 +6,18 @@ import {
 } from '../../../redux/modalReducer/modalReducer';
 import Modal from '../../Modal/Modal';
 import { routes } from '../../../utils/constants';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import cn from 'classnames';
 import extraClasses from '../../Multipliers/Multipliers.module.scss';
 import buttonClasses from '../../Button/Button.module.scss';
-// import { RootState } from '../../../redux/store';
+import { useLocalization } from '../../../utils/translations';
+import { langSegmentRegexp, LANGUAGES } from '../../../utils/constants';
 
 const MenuModal = () => {
 
   const dispatch = useDispatch();
+  const localizationContext = useLocalization();
+  const { translations, setLocality, language } = localizationContext;
   const menuModalIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 
   const handleCloseMenuModal = () => {
@@ -23,6 +26,14 @@ const MenuModal = () => {
 
   const handleMenuItemClick = () => {
     dispatch(closeModal(MENU_MODAL));
+  }
+
+  const handleLanguageChange = language => () => {
+    dispatch(closeModal(MENU_MODAL))
+    setLocality({
+      ...localizationContext,
+      language,
+    });
   }
 
   return (
@@ -47,23 +58,45 @@ const MenuModal = () => {
               >
                 <NavLink
                   className={buttonClasses.Button}
-                  to={entry[1]}
+                  to={entry[1].replace(/:lang/, language)}
                   activeClassName={buttonClasses.Button_disabled}
                   exact
                   onClick={handleMenuItemClick}
                 >
-                  {entry[0]}
+                  {translations[entry[0]]}
                 </NavLink>
               </li>
           ))}
         </ul>
 
-        {/* <p></p> */}
-
+        <ul className='MenuModal__langList'>
+          {LANGUAGES.map(item => {
+            return (
+              <li
+                key={item}
+                className='MenuModal__langItem'
+              >
+                <Link
+                  className={cn(
+                    buttonClasses.Button, {
+                    [buttonClasses.Button_disabled]: language === item,
+                  })}
+                  to={location => location.pathname.replace(langSegmentRegexp, `/${item}/`)}
+                  onClick={handleLanguageChange(item)}
+                >
+                  {translations[item]}
+                </Link>
+              </li>
+            )
+          })}
+        </ul>
       </div>
       <style jsx>{`
         .MenuModal {
           width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
         }
         @media (min-width: 767px) {
           .MenuModal {
@@ -82,6 +115,14 @@ const MenuModal = () => {
         .MenuModal__menuLink {
           margin-bottom: 25px;
           color: #e6e0e0;
+        }
+        .MenuModal__langList {
+          display: flex;
+          margin-top: auto;
+        }
+        .MenuModal__langItem {
+          width: 50px;
+          margin-right: 25px;
         }
       `}</style>
 

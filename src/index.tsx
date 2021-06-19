@@ -7,10 +7,14 @@ import thunk from 'redux-thunk';
 import rootReducer from './redux/store';
 import reportWebVitals from './reportWebVitals';
 import { composeWithDevTools } from "redux-devtools-extension";
+import { apiMiddleware } from 'redux-api-middleware';
 
 const store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
+  composeWithDevTools(applyMiddleware(
+    thunk,
+    apiMiddleware,
+  )),
 );
 
 

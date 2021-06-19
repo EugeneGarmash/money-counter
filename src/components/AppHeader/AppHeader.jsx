@@ -3,7 +3,7 @@ import CloseToggleButton from '../Button/CloseToggleButton/CloseToggleButton';
 import MuteButton from '../Button/MuteButton/MuteButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { MENU_MODAL, openModal } from '../../redux/modalReducer/modalReducer';
-// import { RootState } from '../../redux/store';
+import { useLocalization } from '../../utils/translations';
 
 /** @info styled components */
 /**
@@ -35,6 +35,7 @@ const StyledH1 = styled.h1`
 const AppHeader = () => {
 
   const dispatch = useDispatch();
+  const { translations } = useLocalization();
   const mobileMeuIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 
   const handleToggleMenu = () => {
@@ -51,9 +52,9 @@ const AppHeader = () => {
       </div>
 
       <div className='AppHeader__header'>
-        <StyledH1>Money counter</StyledH1>
+        <StyledH1>{translations.money_counter}</StyledH1>
         <StyledDisclaimer margin='0'>
-          See how much your time cost
+          {translations.app_disclaimer}
         </StyledDisclaimer>
       </div>
 

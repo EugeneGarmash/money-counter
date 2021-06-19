@@ -10,6 +10,8 @@ import { pauseAudio, playAudio } from '../../redux/audioReducer/audioReducer';
 import Button from '../Button/Button';
 import { RootState } from '../../redux/store';
 import { setCounterValue } from '../../redux/counterReducer/counterReducer';
+import { useLocalization } from '../../utils/translations';
+import { MouseEventHandler } from 'react';
 
 const connector = connect(
   (state: RootState) => ({
@@ -41,8 +43,9 @@ const AppMainButton = (props: any) => {
   } = props;
 
   const dispatch = useDispatch();
+  const { translations } = useLocalization();
 
-  const handleCounterStepButtonClick = async (e: Event) => {
+  const handleCounterStepButtonClick: MouseEventHandler<HTMLButtonElement> = async e => {
     if (salaryValue) {
       /** @todo captcha */
       // e.preventDefault();
@@ -76,28 +79,24 @@ const AppMainButton = (props: any) => {
     appIsInSalaryStep
       ? salaryValue
         ? <Button
-            textContent='Start a timer'
-            classNames={classes.AppMainButton}
+            textContent={translations.timer_start}
             onClick={handleCounterStepButtonClick}
           />
         : null
       : counterIsActive
           ? <Button
-              textContent='pause'
-              classNames={classes.AppMainButton}
+              textContent={translations.timer_pause}
               onClick={handlePause}
             />
           : <div className={classes.AppMainButton__pausedButtonsContainer}>
               <div className={classes.AppMainButton__buttonContainer}>
                 <Button
-                  textContent='run'
-                  classNames={classes.AppMainButton}
+                  textContent={translations.timer_run}
                   onClick={handlePause}
                 />
               </div>
               <Button
-                textContent='stop'
-                classNames={classes.AppMainButton}
+                textContent={translations.timer_stop}
                 onClick={handleStop}
               />
           </div>

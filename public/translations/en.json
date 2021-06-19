@@ -1,0 +1,61 @@
+{
+  "money_counter": "Money counter",
+  "app_disclaimer": "See how much your time cost",
+  "who_i_am": "I am Yevhen Harmash and I'm a web developer",
+  "items": "items",
+  "i_make": "I make",
+  "units_per_month": "units per month",
+  "you_have": "You've got",
+  "for_the_last": "for the last",
+  "you_get": "You get",
+  "items_per": "items per",
+  "x_income": "x income",
+  "you_make": "You make",
+  "info": "Info",
+  "main": "Main",
+  "type_here": "type here",
+  "and": "and",
+
+  "second_s": "second(s)",
+  "second1": "second",
+  "minute_s": "minute(s)",
+  "hour_s": "hour(s)",
+
+  "ru": "ru",
+  "en": "en",
+
+  "fire": "Fire",
+  "forest": "Forest",
+  "sea": "Sea",
+  "rain": "Rain",
+
+  "time_per_minute": "per minute",
+  "time_per_hour": "per hour",
+  "time_per_day": "per day",
+  "time_per_workweek": "per workweek",
+  "time_per_month": "per month",
+  "time_per_year": "per year",
+  "time_when_you_young": "when you're young (21 - 32 y.o.)",
+
+  "timer_start": "Start a timer",
+  "timer_pause": "Pause",
+  "timer_run": "Run",
+  "timer_stop": "Stop",
+
+  "share_via_facebook": "Go to author's Facebook page",
+  "share_via_email": "Share via email",
+  "share_via_telegram": "Share via Telegram",
+  "share_via_viber": "Share via Viber",
+  "share_via_whatsapp": "Share via Whatsapp",
+
+  "info_title": "The belowmentioned technologies and techniques are used for practice:",
+  "info_ts": "TypeScript",
+  "info_hooks_n_redux": "React hooks, Redux hooks, React-redux",
+  "info_reactRouter": "React-router",
+  "info_components": "Class and Functional components",
+  "info_context": "Context API",
+  "info_styling": "Styling: CSS Modules, SCSS, Styled C, Radium",
+  "info_audio_api": "Audio API",
+
+  "": ""
+}

@@ -1,6 +1,6 @@
 import './Waves.scss';
 
-const Waves = ({ paused }) => {
+const Waves = ({ paused }: { paused: boolean }) => {
   return (
     <div className="header">
       <svg

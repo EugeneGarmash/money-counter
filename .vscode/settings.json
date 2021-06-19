@@ -1,8 +1,14 @@
 {
   "cSpell.words": [
+    "RSAA",
+    "Regexped",
     "basepath",
     "mixins",
+    "vercel",
     "viber",
     "whatsapp"
-  ]
+  ],
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
 }

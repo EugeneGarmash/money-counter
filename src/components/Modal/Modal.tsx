@@ -4,9 +4,17 @@ import classes from './Modal.module.scss';
 import cn from 'classnames';
 import CloseToggleButton from '../Button/CloseToggleButton/CloseToggleButton';
 
-const Modal = props => {
+interface Props {
+  children: React.ReactNode,
+  isOpen: boolean;
+  onClose(): void;
+  topAndLeft?: boolean;
+  fullHeight?: boolean;
+}
 
-  const ModalComponent = props => {
+const Modal = (props: Props) => {
+
+  const ModalComponent = (props: Props) => {
 
     useEffect(() => {
       toggleBackground(true);
@@ -15,18 +23,20 @@ const Modal = props => {
       }
     })
 
-    const toggleBackground = isOn => {
-      const body = document.querySelector('body');
-      body.style.overflow = isOn ? 'hidden' : 'visible';
-      body.style.top = '0';
+    const toggleBackground = (isOn: boolean) => {
+      const body: HTMLBodyElement | null = document.querySelector('body');
+      if (body) {
+        body.style.overflow = isOn ? 'hidden' : 'visible';
+        body.style.top = '0';
+      }
     }
 
-    const handleClose = event => {
+    const handleClose = (event: React.MouseEvent) => {
       event.preventDefault();
       props.onClose();
     }
 
-    const handleModalClick = event => {
+    const handleModalClick = (event: React.MouseEvent) => {
       event.stopPropagation();
     }
 
@@ -55,7 +65,7 @@ const Modal = props => {
   return props.isOpen
     ? ReactDOM.createPortal(
         <ModalComponent {...{...props, children: props.children}} />,
-        document.querySelector('.App')
+        document.querySelector('.App') as HTMLDivElement
       )
     : null;
 }

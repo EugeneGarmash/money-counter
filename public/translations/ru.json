@@ -1,0 +1,61 @@
+{
+  "money_counter": "Счётчик денег",
+  "app_disclaimer": "Узнай сколько стоит твоё время",
+  "who_i_am": "Меня зовут Евгений Гармаш и я веб-разработчик",
+  "items": "у.е.",
+  "i_make": "Я зарабатываю",
+  "units_per_month": "у.е. в месяц",
+  "you_have": "Вы заработали",
+  "for_the_last": "за последние",
+  "you_get": "Вы зарабатываете",
+  "items_per": "у.е. за",
+  "x_income": "x доход",
+  "you_make": "Вы зарабатываете",
+  "info": "О продукте",
+  "main": "Главная",
+  "type_here": "введите число",
+  "and": "и",
+
+  "second_s": "секунд(у)",
+  "second1": "секунду",
+  "minute_s": "минут(у)",
+  "hour_s": "час(ов)",
+
+  "ru": "рус",
+  "en": "en",
+
+  "fire": "Огонь",
+  "forest": "Лес",
+  "sea": "Море",
+  "rain": "Дождь",
+
+  "time_per_minute": "в минуту",
+  "time_per_hour": "в час",
+  "time_per_day": "в день",
+  "time_per_workweek": "за 5 рабочих дней",
+  "time_per_month": "в месяц",
+  "time_per_year": "в год",
+  "time_when_you_young": "пока вы молод (21 - 32)",
+
+  "timer_start": "Начать отсчёт",
+  "timer_pause": "Пауза",
+  "timer_run": "Продолжить",
+  "timer_stop": "Остановить",
+
+  "share_via_facebook": "Посетить Facebook страничку автора",
+  "share_via_email": "Поделиться через email",
+  "share_via_telegram": "Поделиться через Telegram",
+  "share_via_viber": "Поделиться через Viber",
+  "share_via_whatsapp": "Поделиться через Whatsapp",
+
+  "info_title": "Следующие технологии были использованы на проекте в целях практики",
+  "info_ts": "TypeScript",
+  "info_hooks_n_redux": "React hooks, Redux hooks, React-redux",
+  "info_reactRouter": "React-router",
+  "info_components": "Классовые и функциональные компоненты",
+  "info_context": "Context API",
+  "info_styling": "Styling: CSS Modules, SCSS, Styled C, Radium",
+  "info_audio_api": "Audio API",
+
+  "": ""
+}

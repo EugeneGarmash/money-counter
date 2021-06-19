@@ -1,7 +1,10 @@
-import React from 'react';
 import classes from './Fire.module.scss';
 
-const Fire = props => {
+interface Props {
+  paused: boolean;
+}
+
+const Fire = (props: Props) => {
   return (
     <div className={classes.fire}>
       <div className={classes.flames}>
