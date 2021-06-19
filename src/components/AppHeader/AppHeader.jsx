@@ -36,7 +36,6 @@ const StyledH1 = styled.h1`
 const AppHeader = () => {
 
   const dispatch = useDispatch();
-  // const useLocalization();
   const { translations } = useLocalization();
   const mobileMeuIsOpen = useSelector((s) => s.modal[MENU_MODAL].isOpen);
 

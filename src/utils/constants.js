@@ -8,8 +8,9 @@ export const basepath = `money-counter.vercel.app`;
 export const welcomeText = 'Count your money while working';
 
 export const routes = {
-  info: '/info', // add language here
-  main: '/',
+  blank: '/',
+  info: '/:lang/info/',
+  main: '/:lang/',
 }
 
 export const entertainmentMode = {

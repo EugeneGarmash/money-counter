@@ -1,5 +1,4 @@
 const handleActiveTabClose = (shouldFire) => {
-  console.log('🚀 ~ file: handleActiveTabClose.js ~ line 2 ~ handleActiveTabClose ~ shouldFire', shouldFire);
 
   if (!shouldFire) {
     window.onbeforeunload = () => {};

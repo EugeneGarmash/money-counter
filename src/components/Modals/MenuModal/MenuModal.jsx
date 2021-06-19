@@ -12,9 +12,8 @@ import extraClasses from '../../Multipliers/Multipliers.module.scss';
 import buttonClasses from '../../Button/Button.module.scss';
 import Button from '../../Button/Button';
 import { useLocalization } from '../../../utils/translations';
-// import { RootState } from '../../../redux/store';
 
-const languages = [ // ENV VARS
+const languages = [
   'ru',
   'en',
 ];
@@ -63,7 +62,7 @@ const MenuModal = () => {
               >
                 <NavLink
                   className={buttonClasses.Button}
-                  to={entry[1]}
+                  to={entry[1].replace(/:lang/, localizationContext.language)}
                   activeClassName={buttonClasses.Button_disabled}
                   exact
                   onClick={handleMenuItemClick}
@@ -77,19 +76,20 @@ const MenuModal = () => {
         <ul className='MenuModal__langList'>
           {languages.map(item => {
             return (
-              <Link>
-                <li
-                  key={item}
-                  className='MenuModal__langItem'
+              <li
+                key={item}
+                className='MenuModal__langItem'
+                // onClick={handleLanguageChange(item)}
+              >
+                <Link
+                  className={buttonClasses.Button}
+                  to={item.replace(/:lang/, localizationContext.language)}
+                  disabled={localizationContext.language === item}
+                  onClick={handleLanguageChange(item)}
                 >
-                  <Button
-                    disabled={localizationContext.language === item}
-                    onClick={handleLanguageChange(item)}
-                  >
-                    {item}
-                  </Button>
-                </li>
-              </Link>
+                  {item}
+                </Link>
+              </li>
             )
           })}
         </ul>

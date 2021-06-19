@@ -18,6 +18,11 @@ import { fetchLanguages, Localization } from '../../utils/translations';
 const AppFooter = React.lazy(() => import('../AppFooter/AppFooter'));
 
 // LOCALIZATION - ru / eng // change languages
+{/* <NotFoundPage /> */}
+{/* Route in Route */}
+// ENV VARS
+// MenuModal
+// empty language redirect
 
 export interface Translations {
   [id: string]: string;
@@ -29,7 +34,6 @@ const App = () =>  {
     translations: {},
     language: defaultLang,
   });
-  console.log('🚀 ~ file: App.tsx ~ line 56 ~ App ~ language', localization.translations);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -41,8 +45,6 @@ const App = () =>  {
         }));
     });
   }, [dispatch])
-
-  // lang - query !!
 
   return (
     <BrowserRouter>
@@ -60,18 +62,22 @@ const App = () =>  {
               <AppHeader/>
 
               <Switch>
-
-                <Route path={routes.info}>
+                <Route
+                  exact
+                  path={routes.info}
+                >
                   <About />
                 </Route>
 
-                <Route path={routes.main}>
+                <Route
+                  // exact
+                  path={routes.main}
+                >
                   <AppStepManager />
                   <Suspense fallback={<div>LOADING...</div>}>
                     <AppFooter />
                   </Suspense>
                 </Route>
-
               </Switch>
 
               <Helpers />
