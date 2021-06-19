@@ -80,27 +80,23 @@ const AppMainButton = (props: any) => {
       ? salaryValue
         ? <Button
             textContent={translations.timer_start}
-            // classNames={classes.AppMainButton}
             onClick={handleCounterStepButtonClick}
           />
         : null
       : counterIsActive
           ? <Button
               textContent={translations.timer_pause}
-              // classNames={classes.AppMainButton}
               onClick={handlePause}
             />
           : <div className={classes.AppMainButton__pausedButtonsContainer}>
               <div className={classes.AppMainButton__buttonContainer}>
                 <Button
                   textContent={translations.timer_run}
-                  // classNames={classes.AppMainButton}
                   onClick={handlePause}
                 />
               </div>
               <Button
                 textContent={translations.timer_stop}
-                // classNames={classes.AppMainButton}
                 onClick={handleStop}
               />
           </div>
